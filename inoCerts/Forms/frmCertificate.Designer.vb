@@ -33,6 +33,10 @@ Partial Class FrmCertificate
         Me.chkBox = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Subject = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Issuer = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IsInTrusstore = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.Truststore = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Certstore = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IsRoot = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.DgvCertificate, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -101,10 +105,10 @@ Partial Class FrmCertificate
         Me.DgvCertificate.AllowUserToAddRows = False
         Me.DgvCertificate.AllowUserToDeleteRows = False
         Me.DgvCertificate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvCertificate.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.chkBox, Me.Subject, Me.Issuer})
-        Me.DgvCertificate.Location = New System.Drawing.Point(52, 141)
+        Me.DgvCertificate.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.chkBox, Me.Subject, Me.Issuer, Me.IsInTrusstore, Me.Truststore, Me.Certstore, Me.IsRoot})
+        Me.DgvCertificate.Location = New System.Drawing.Point(42, 141)
         Me.DgvCertificate.Name = "DgvCertificate"
-        Me.DgvCertificate.Size = New System.Drawing.Size(506, 151)
+        Me.DgvCertificate.Size = New System.Drawing.Size(531, 151)
         Me.DgvCertificate.TabIndex = 7
         '
         'chkBox
@@ -116,11 +120,37 @@ Partial Class FrmCertificate
         '
         Me.Subject.HeaderText = "Subject"
         Me.Subject.Name = "Subject"
+        Me.Subject.ReadOnly = True
         '
         'Issuer
         '
         Me.Issuer.HeaderText = "Issuer"
         Me.Issuer.Name = "Issuer"
+        Me.Issuer.ReadOnly = True
+        '
+        'IsInTrusstore
+        '
+        Me.IsInTrusstore.HeaderText = "Truststore"
+        Me.IsInTrusstore.Name = "IsInTrusstore"
+        Me.IsInTrusstore.ReadOnly = True
+        '
+        'Truststore
+        '
+        Me.Truststore.HeaderText = "Truststore"
+        Me.Truststore.Name = "Truststore"
+        Me.Truststore.ReadOnly = True
+        '
+        'Certstore
+        '
+        Me.Certstore.HeaderText = "Certstore"
+        Me.Certstore.Name = "Certstore"
+        Me.Certstore.ReadOnly = True
+        '
+        'IsRoot
+        '
+        Me.IsRoot.HeaderText = "Root"
+        Me.IsRoot.Name = "IsRoot"
+        Me.IsRoot.ReadOnly = True
         '
         'FrmCertificate
         '
@@ -136,7 +166,7 @@ Partial Class FrmCertificate
         Me.Controls.Add(Me.CmdFile)
         Me.Controls.Add(Me.CmdCancel)
         Me.Name = "FrmCertificate"
-        Me.Text = "Form1"
+        Me.Text = "Zertifikatsimport in Windowstruststore"
         CType(Me.DgvCertificate, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -154,4 +184,8 @@ Partial Class FrmCertificate
     Friend WithEvents chkBox As DataGridViewCheckBoxColumn
     Friend WithEvents Subject As DataGridViewTextBoxColumn
     Friend WithEvents Issuer As DataGridViewTextBoxColumn
+    Friend WithEvents IsInTrusstore As DataGridViewCheckBoxColumn
+    Friend WithEvents Truststore As DataGridViewTextBoxColumn
+    Friend WithEvents Certstore As DataGridViewTextBoxColumn
+    Friend WithEvents IsRoot As DataGridViewCheckBoxColumn
 End Class
