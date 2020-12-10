@@ -73,13 +73,22 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="Classes\ClsCertificate.vb" />
+    <Compile Include="Classes\ClsCertificates.vb" />
+    <Compile Include="Forms\FrmCertificate.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="Forms\FrmCertificate.Designer.vb">
+      <DependentUpon>FrmCertificate.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\FrmMain.Designer.vb">
+      <DependentUpon>FrmMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\mdlCertificates.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -97,6 +106,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\FrmCertificate.resx">
+      <DependentUpon>FrmCertificate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMain.resx">
+      <DependentUpon>FrmMain.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
