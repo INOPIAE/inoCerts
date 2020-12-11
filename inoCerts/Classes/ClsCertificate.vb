@@ -5,16 +5,22 @@ Public Class ClsCertificate
     Public isInTruststore As Boolean
     Public Truststore As StoreLocation
     Public CertStore As StoreName
-    Public isRoot As Boolean
+    Public CurrentCertType As CertType = CertType.Unknown
+
+    Public Enum CertType
+        Unknown
+        EndCertificate
+        IntermediateCertificate
+        RootCertificate
+    End Enum
 
     Public Sub New(certificate As X509Certificate2)
         cert = certificate
-        isRoot = (cert.Issuer.Equals(cert.Subject))
+        If (cert.Issuer.Equals(cert.Subject)) Then CurrentCertType = CertType.RootCertificate
         FindCertificateInTrustsore()
     End Sub
 
     Public Sub FindCertificateInTrustsore()
-
         Dim store As X509Store
         For Each storeL As StoreLocation In System.Enum.GetValues(GetType(StoreLocation))
             For Each storeN As StoreName In System.Enum.GetValues(GetType(StoreName))

@@ -30,13 +30,15 @@ Partial Class FrmCertificate
         Me.LblPassword = New System.Windows.Forms.Label()
         Me.TxtPassword = New System.Windows.Forms.TextBox()
         Me.DgvCertificate = New System.Windows.Forms.DataGridView()
+        Me.CmdImport = New System.Windows.Forms.Button()
+        Me.CmdDelete = New System.Windows.Forms.Button()
         Me.chkBox = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Subject = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Issuer = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IsInTrusstore = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.IsInTruststore = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Truststore = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Certstore = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IsRoot = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.CertType = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DgvCertificate, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -105,11 +107,29 @@ Partial Class FrmCertificate
         Me.DgvCertificate.AllowUserToAddRows = False
         Me.DgvCertificate.AllowUserToDeleteRows = False
         Me.DgvCertificate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvCertificate.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.chkBox, Me.Subject, Me.Issuer, Me.IsInTrusstore, Me.Truststore, Me.Certstore, Me.IsRoot})
+        Me.DgvCertificate.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.chkBox, Me.Subject, Me.Issuer, Me.IsInTruststore, Me.Truststore, Me.Certstore, Me.CertType})
         Me.DgvCertificate.Location = New System.Drawing.Point(42, 141)
         Me.DgvCertificate.Name = "DgvCertificate"
         Me.DgvCertificate.Size = New System.Drawing.Size(531, 151)
         Me.DgvCertificate.TabIndex = 7
+        '
+        'CmdImport
+        '
+        Me.CmdImport.Location = New System.Drawing.Point(657, 141)
+        Me.CmdImport.Name = "CmdImport"
+        Me.CmdImport.Size = New System.Drawing.Size(75, 25)
+        Me.CmdImport.TabIndex = 8
+        Me.CmdImport.Text = "Importieren"
+        Me.CmdImport.UseVisualStyleBackColor = True
+        '
+        'CmdDelete
+        '
+        Me.CmdDelete.Location = New System.Drawing.Point(657, 172)
+        Me.CmdDelete.Name = "CmdDelete"
+        Me.CmdDelete.Size = New System.Drawing.Size(75, 25)
+        Me.CmdDelete.TabIndex = 8
+        Me.CmdDelete.Text = "Löschen"
+        Me.CmdDelete.UseVisualStyleBackColor = True
         '
         'chkBox
         '
@@ -128,11 +148,11 @@ Partial Class FrmCertificate
         Me.Issuer.Name = "Issuer"
         Me.Issuer.ReadOnly = True
         '
-        'IsInTrusstore
+        'IsInTruststore
         '
-        Me.IsInTrusstore.HeaderText = "Truststore"
-        Me.IsInTrusstore.Name = "IsInTrusstore"
-        Me.IsInTrusstore.ReadOnly = True
+        Me.IsInTruststore.HeaderText = "In Truststore"
+        Me.IsInTruststore.Name = "IsInTruststore"
+        Me.IsInTruststore.ReadOnly = True
         '
         'Truststore
         '
@@ -146,17 +166,21 @@ Partial Class FrmCertificate
         Me.Certstore.Name = "Certstore"
         Me.Certstore.ReadOnly = True
         '
-        'IsRoot
+        'CertType
         '
-        Me.IsRoot.HeaderText = "Root"
-        Me.IsRoot.Name = "IsRoot"
-        Me.IsRoot.ReadOnly = True
+        Me.CertType.HeaderText = "Certificate type"
+        Me.CertType.Name = "CertType"
+        Me.CertType.ReadOnly = True
+        Me.CertType.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.CertType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
         'FrmCertificate
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.CmdDelete)
+        Me.Controls.Add(Me.CmdImport)
         Me.Controls.Add(Me.DgvCertificate)
         Me.Controls.Add(Me.TxtPassword)
         Me.Controls.Add(Me.LblPassword)
@@ -181,11 +205,13 @@ Partial Class FrmCertificate
     Friend WithEvents LblPassword As Label
     Friend WithEvents TxtPassword As TextBox
     Friend WithEvents DgvCertificate As DataGridView
+    Friend WithEvents CmdImport As Button
+    Friend WithEvents CmdDelete As Button
     Friend WithEvents chkBox As DataGridViewCheckBoxColumn
     Friend WithEvents Subject As DataGridViewTextBoxColumn
     Friend WithEvents Issuer As DataGridViewTextBoxColumn
-    Friend WithEvents IsInTrusstore As DataGridViewCheckBoxColumn
+    Friend WithEvents IsInTruststore As DataGridViewCheckBoxColumn
     Friend WithEvents Truststore As DataGridViewTextBoxColumn
     Friend WithEvents Certstore As DataGridViewTextBoxColumn
-    Friend WithEvents IsRoot As DataGridViewCheckBoxColumn
+    Friend WithEvents CertType As DataGridViewTextBoxColumn
 End Class
