@@ -8,7 +8,7 @@ Public Class FrmCertificate
         Dim ofd As New OpenFileDialog
         With ofd
             .Multiselect = False
-            .Filter = "Zertifikate (*.p12)|*.p12|Alle Dateien (*.*)|*.*"
+            .Filter = "Zertifikate (*.p12, *.cer)|*.p12; *cer|Alle Dateien (*.*)|*.*"
             .InitialDirectory = My.Settings.lastPath
             If .ShowDialog = DialogResult.OK Then
                 My.Settings.lastPath = System.IO.Path.GetFullPath(.FileName)
@@ -55,10 +55,22 @@ Public Class FrmCertificate
                 End If
                 Dim storeL As StoreLocation = StoreLocation.LocalMachine
                 Dim storeN As StoreName = StoreName.My
+                Dim cert As X509Certificate2 = certfile.GetCertBySubject(r.Cells("Subject").Value)
                 Select Case [Enum].Parse(GetType(ClsCertificate.CertType), r.Cells("CertType").Value)
                     Case ClsCertificate.CertType.EndCertificate
                         'TODO check correct store
-                        storeN = StoreName.My
+                        If cert.HasPrivateKey = True Then
+                            storeN = StoreName.My
+                        Else
+                            Dim frm As New FrmCertStoreCheck
+                            frm.LblCertStore.Text = "Zertifikatsstore für" & vbNewLine & r.Cells("Subject").Value & ":"
+                            If frm.ShowDialog = DialogResult.OK Then
+                                storeN = [Enum].Parse(GetType(StoreName), frm.LbStore.SelectedItem)
+                            Else
+                                MessageBox.Show("Import abgebrochen")
+                                Continue For
+                            End If
+                        End If
                         storeL = StoreLocation.CurrentUser
                     Case ClsCertificate.CertType.IntermediateCertificate
                         storeN = StoreName.CertificateAuthority
@@ -74,7 +86,7 @@ Public Class FrmCertificate
                         Continue For
                 End Select
 
-                AddCertificate(certfile.GetCertBySubject(r.Cells("Subject").Value), storeL, storeN)
+                AddCertificate(cert, storeL, storeN)
                 blnImport = True
             End If
         Next
