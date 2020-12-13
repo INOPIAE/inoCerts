@@ -97,4 +97,8 @@ Public Class frmMain
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
         FrmAbout.Show()
     End Sub
+
+    Private Sub OptionsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OptionsToolStripMenuItem.Click
+        FrmSettings.Show()
+    End Sub
 End Class

@@ -139,6 +139,12 @@
     <Compile Include="Forms\FrmMain.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\FrmSettings.Designer.vb">
+      <DependentUpon>FrmSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modules\MdlCertificate.vb" />
     <Compile Include="Modules\MdlTestFunctions.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmMain.resx">
       <DependentUpon>FrmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmSettings.resx">
+      <DependentUpon>FrmSettings.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
