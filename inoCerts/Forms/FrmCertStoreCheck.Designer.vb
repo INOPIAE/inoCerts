@@ -22,18 +22,19 @@ Partial Class FrmCertStoreCheck
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.LblCertStore = New System.Windows.Forms.Label()
         Me.LbStore = New System.Windows.Forms.ListBox()
         Me.CmdCancel = New System.Windows.Forms.Button()
         Me.CmdOK = New System.Windows.Forms.Button()
+        Me.ttCerts = New System.Windows.Forms.ToolTip(Me.components)
         Me.SuspendLayout()
         '
         'LblCertStore
         '
-        Me.LblCertStore.AutoSize = True
         Me.LblCertStore.Location = New System.Drawing.Point(12, 21)
         Me.LblCertStore.Name = "LblCertStore"
-        Me.LblCertStore.Size = New System.Drawing.Size(39, 13)
+        Me.LblCertStore.Size = New System.Drawing.Size(279, 59)
         Me.LblCertStore.TabIndex = 0
         Me.LblCertStore.Text = "Label1"
         '
@@ -75,10 +76,10 @@ Partial Class FrmCertStoreCheck
         Me.Controls.Add(Me.CmdCancel)
         Me.Controls.Add(Me.LbStore)
         Me.Controls.Add(Me.LblCertStore)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "FrmCertStoreCheck"
         Me.Text = "Auswahl des Zertifikatsstores"
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -86,4 +87,5 @@ Partial Class FrmCertStoreCheck
     Friend WithEvents LbStore As ListBox
     Friend WithEvents CmdCancel As Button
     Friend WithEvents CmdOK As Button
+    Friend WithEvents ttCerts As ToolTip
 End Class
