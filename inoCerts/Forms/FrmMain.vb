@@ -93,4 +93,8 @@ Public Class frmMain
             .WindowState = FormWindowState.Maximized
         End With
     End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        FrmAbout.Show()
+    End Sub
 End Class

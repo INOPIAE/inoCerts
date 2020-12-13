@@ -9,8 +9,8 @@ Imports System.Runtime.InteropServices
 ' Werte der Assemblyattribute überprüfen
 
 <Assembly: AssemblyTitle("inoCerts")>
-<Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyDescription("Diese Software ist OpenSourece unter der Verwendung der AGPL v3.")>
+<Assembly: AssemblyCompany("INOPIAE GbR")>
 <Assembly: AssemblyProduct("inoCerts")>
 <Assembly: AssemblyCopyright("Copyright ©  2020")>
 <Assembly: AssemblyTrademark("")>
