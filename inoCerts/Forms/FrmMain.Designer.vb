@@ -79,6 +79,7 @@ Partial Class frmMain
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.WPIARootzertifikateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -287,7 +288,7 @@ Partial Class frmMain
         '
         'ZertifikateToolStripMenuItem
         '
-        Me.ZertifikateToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportWindowsToolStripMenuItem})
+        Me.ZertifikateToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportWindowsToolStripMenuItem, Me.WPIARootzertifikateToolStripMenuItem})
         Me.ZertifikateToolStripMenuItem.Name = "ZertifikateToolStripMenuItem"
         Me.ZertifikateToolStripMenuItem.Size = New System.Drawing.Size(72, 20)
         Me.ZertifikateToolStripMenuItem.Text = "Zertifikate"
@@ -488,6 +489,12 @@ Partial Class frmMain
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
         '
+        'WPIARootzertifikateToolStripMenuItem
+        '
+        Me.WPIARootzertifikateToolStripMenuItem.Name = "WPIARootzertifikateToolStripMenuItem"
+        Me.WPIARootzertifikateToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
+        Me.WPIARootzertifikateToolStripMenuItem.Text = "WPIA-Rootzertifikate"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -564,4 +571,5 @@ Partial Class frmMain
     Friend WithEvents ToolsMenu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ZertifikateToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ImportWindowsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents WPIARootzertifikateToolStripMenuItem As ToolStripMenuItem
 End Class

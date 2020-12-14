@@ -101,4 +101,14 @@ Public Class frmMain
     Private Sub OptionsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OptionsToolStripMenuItem.Click
         FrmSettings.Show()
     End Sub
+
+    Private Sub WPIARootzertifikateToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles WPIARootzertifikateToolStripMenuItem.Click
+        Dim frm As New FrmWPIACerts
+        With frm
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+    End Sub
+
 End Class

@@ -4,7 +4,9 @@ Public Class ClsCertificates
     Public certs() As ClsCertificate
     Public password As String
 
-    Public Sub New(strFile As String, strPassword As String)
+    Public Sub New(strFile As String, strPassword As String, Optional strRoot As String = vbNullString,
+                   Optional strStoreLocation As String = vbNullString)
+
         Dim certfile As New X509Certificate2Collection()
 
         Try
@@ -24,12 +26,22 @@ Public Class ClsCertificates
 
         password = strPassword
 
-
         Dim intCount As Integer = 0
         Dim lastSubject As String = vbNullString
         For Each cert As X509Certificate2 In certfile
             ReDim Preserve certs(intCount)
             certs(intCount) = New ClsCertificate(cert)
+            Select Case strRoot
+                Case "root"
+                    certs(intCount).CurrentCertType = ClsCertificate.CertType.RootCertificate
+                    certs(intCount).CertStore = StoreName.Root
+                Case "intermediate"
+                    certs(intCount).CurrentCertType = ClsCertificate.CertType.IntermediateCertificate
+                    certs(intCount).CertStore = StoreName.CertificateAuthority
+            End Select
+            If strStoreLocation <> vbNullString Then
+                certs(intCount).Truststore = [Enum].Parse(GetType(StoreLocation), strStoreLocation)
+            End If
             lastSubject = cert.Subject
             intCount += 1
         Next

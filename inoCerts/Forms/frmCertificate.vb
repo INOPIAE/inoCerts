@@ -3,6 +3,8 @@
 Public Class FrmCertificate
 
     Private certfile As ClsCertificates
+    Public strRoot As String = vbNullString
+    Public strStoreLocation As String = vbNullString
 
     Private Sub CmdFile_Click(sender As Object, e As EventArgs) Handles CmdFile.Click
         Dim ofd As New OpenFileDialog
@@ -22,9 +24,14 @@ Public Class FrmCertificate
     End Sub
 
     Private Sub CmdAnalyse_Click(sender As Object, e As EventArgs) Handles CmdAnalyse.Click
-        certfile = New ClsCertificates(Me.TxtFile.Text, Me.TxtPassword.Text)
+        LblDGVInfo.Text = "Datei wird gelesen"
+        LblDGVInfo.BackColor = Color.Coral
+        Application.DoEvents()
+        certfile = New ClsCertificates(Me.TxtFile.Text, Me.TxtPassword.Text, strRoot, strStoreLocation)
 
         fillDatagrid()
+        LblDGVInfo.Text = String.Format("Datei enthält {0} Zertifikate", certfile.certs.Count)
+        LblDGVInfo.BackColor = Me.BackColor
     End Sub
 
     Private Sub fillDatagrid()
@@ -109,4 +116,5 @@ Public Class FrmCertificate
             CmdAnalyse.PerformClick()
         End If
     End Sub
+
 End Class

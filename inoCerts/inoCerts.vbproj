@@ -75,11 +75,9 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
-  </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -145,6 +143,12 @@
     <Compile Include="Forms\FrmSettings.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\FrmWPIACerts.Designer.vb">
+      <DependentUpon>FrmWPIACerts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmWPIACerts.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modules\MdlCertificate.vb" />
     <Compile Include="Modules\MdlTestFunctions.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -181,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmSettings.resx">
       <DependentUpon>FrmSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmWPIACerts.resx">
+      <DependentUpon>FrmWPIACerts.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
