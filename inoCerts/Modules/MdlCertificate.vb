@@ -4,12 +4,20 @@ Imports System.Security.Cryptography.X509Certificates
 Module MdlCertificate
 
     Public Sub AddCertificate(cert As X509Certificate2, truststore As StoreLocation, certstore As StoreName)
+        If My.User.IsInRole(ApplicationServices.BuiltInRole.Administrator) = False And truststore = StoreLocation.LocalMachine Then
+            MyMessage("Das Programm muss als Administrator gestartet werden.")
+            Exit Sub
+        End If
         Dim store As New X509Store(certstore, truststore)
         store.Open(OpenFlags.ReadWrite)
         store.Add(cert)
     End Sub
 
     Public Sub RemoveCertificate(cert As X509Certificate2, truststore As StoreLocation, certstore As StoreName)
+        If My.User.IsInRole(ApplicationServices.BuiltInRole.Administrator) = False And truststore = StoreLocation.LocalMachine Then
+            MyMessage("Das Programm muss als Administrator gestartet werden.")
+            Exit Sub
+        End If
         Dim store As New X509Store(certstore, truststore)
         store.Open(OpenFlags.ReadWrite)
         store.Remove(cert)
