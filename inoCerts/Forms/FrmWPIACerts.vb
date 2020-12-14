@@ -11,7 +11,7 @@ Public Class FrmWPIACerts
     Private Sub CmdOK_Click(sender As Object, e As EventArgs) Handles CmdOK.Click
 
         If My.User.IsInRole(ApplicationServices.BuiltInRole.Administrator) = False And RbLocalMachine.Checked Then
-            MessageBox.Show("Das Programm muss als Administrator gestartetet werden.")
+            MyMessage("Das Programm muss als Administrator gestartet werden.")
             Exit Sub
         End If
 
@@ -38,10 +38,10 @@ Public Class FrmWPIACerts
                 client.DownloadFile(URLRoot, RootFile)
                 Dim cert As X509Certificate2 = CertFromFile(RootFile)
                 If FindCertificateInTrustsore(cert).Contains(":") Then
-                    MessageBox.Show("Root-Zertifikat ist schon importiert.")
+                    MyMessage("Root-Zertifikat ist schon importiert.")
                 Else
                     AddCertificate(cert, [Enum].Parse(GetType(StoreLocation), strStoreLocation), StoreName.Root)
-                    MessageBox.Show("Root-Zertifikat wurde erfolgreich importiert.")
+                    MyMessage("Root-Zertifikat wurde erfolgreich importiert.")
                 End If
             End If
             If ChkIntermediate.Checked Then

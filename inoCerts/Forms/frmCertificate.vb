@@ -57,7 +57,7 @@ Public Class FrmCertificate
         For Each r As DataGridViewRow In Me.DgvCertificate.Rows
             If r.Cells("chkBox").Value = True Then
                 If r.Cells("IsInTruststore").Value = True Then
-                    MessageBox.Show("Zertifikat schon im Truststore")
+                    MyMessage("Zertifikat schon im Truststore")
                     Continue For
                 End If
                 Dim storeL As StoreLocation = StoreLocation.LocalMachine
@@ -74,7 +74,7 @@ Public Class FrmCertificate
                             If frm.ShowDialog = DialogResult.OK Then
                                 storeN = [Enum].Parse(GetType(StoreName), frm.LbStore.SelectedItem)
                             Else
-                                MessageBox.Show("Import abgebrochen")
+                                MyMessage("Import abgebrochen")
                                 Continue For
                             End If
                         End If
@@ -89,7 +89,7 @@ Public Class FrmCertificate
                         'TODO check correct store
                         storeN = StoreName.My
                         storeL = StoreLocation.CurrentUser
-                        MessageBox.Show("Zertifikatstore not defined")
+                        MyMessage("Zertifikatstore not defined")
                         Continue For
                 End Select
 

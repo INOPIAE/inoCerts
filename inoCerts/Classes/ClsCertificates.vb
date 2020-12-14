@@ -14,11 +14,11 @@ Public Class ClsCertificates
         Catch exception As System.Security.Cryptography.CryptographicException
             Select Case exception.HResult
                 Case -2147024810
-                    MessageBox.Show("Das Password fehlt oder ist falsch.", "Fehler")
+                    MyMessage("Das Password fehlt oder ist falsch.", "Fehler")
                 Case -2147024894
-                    MessageBox.Show("Die angegegeben Datei is nicht vorhanden.", "Fehler")
+                    MyMessage("Die angegegeben Datei is nicht vorhanden.", "Fehler")
                 Case Else
-                    MessageBox.Show(exception.HResult & " " & exception.Message)
+                    MyMessage(exception.HResult & " " & exception.Message)
                     Debug.Print(exception.HResult)
             End Select
             Exit Sub

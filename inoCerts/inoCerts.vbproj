@@ -150,6 +150,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\MdlCertificate.vb" />
+    <Compile Include="Modules\MdlHelper.vb" />
     <Compile Include="Modules\MdlTestFunctions.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
