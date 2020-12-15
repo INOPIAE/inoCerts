@@ -80,6 +80,7 @@ Partial Class frmMain
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.TslbCert = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -482,7 +483,7 @@ Partial Class frmMain
         '
         'StatusStrip
         '
-        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
+        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel, Me.TslbCert})
         Me.StatusStrip.Location = New System.Drawing.Point(0, 495)
         Me.StatusStrip.Name = "StatusStrip"
         Me.StatusStrip.Size = New System.Drawing.Size(867, 22)
@@ -494,6 +495,12 @@ Partial Class frmMain
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
+        '
+        'TslbCert
+        '
+        Me.TslbCert.Name = "TslbCert"
+        Me.TslbCert.Size = New System.Drawing.Size(119, 17)
+        Me.TslbCert.Text = "ToolStripStatusLabel1"
         '
         'frmMain
         '
@@ -572,4 +579,5 @@ Partial Class frmMain
     Friend WithEvents ZertifikateToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ImportWindowsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents WPIARootzertifikateToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TslbCert As ToolStripStatusLabel
 End Class

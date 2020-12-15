@@ -5,6 +5,7 @@ Public Class FrmCertificate
     Private certfile As ClsCertificates
     Public strRoot As String = vbNullString
     Public strStoreLocation As String = vbNullString
+    Private intSelected As Int16
 
     Private Sub CmdFile_Click(sender As Object, e As EventArgs) Handles CmdFile.Click
         Dim ofd As New OpenFileDialog
@@ -24,7 +25,7 @@ Public Class FrmCertificate
     End Sub
 
     Private Sub CmdAnalyse_Click(sender As Object, e As EventArgs) Handles CmdAnalyse.Click
-        LblDGVInfo.Text = "Datei wird gelesen"
+        LblDGVInfo.Text = "Zertifikate werden eingelesen"
         LblDGVInfo.BackColor = Color.Coral
         Application.DoEvents()
         certfile = New ClsCertificates(Me.TxtFile.Text, Me.TxtPassword.Text, strRoot, strStoreLocation)
@@ -40,12 +41,19 @@ Public Class FrmCertificate
         If certfile.certs Is Nothing = False Then
             For Each cert As ClsCertificate In certfile.certs
                 Me.DgvCertificate.Rows.Add(False, cert.cert.Subject, cert.cert.Issuer, cert.isInTruststore, cert.Truststore.ToString, cert.CertStore.ToString, cert.CurrentCertType.ToString)
+                If cert.isInTruststore Then
+                    DgvCertificate.Rows(intCount).Cells("IsInTruststore").Style.BackColor = Color.LightGreen
+                End If
+                intCount += 1
             Next
         End If
+        intSelected = 0
+        UpdateStatusbar()
     End Sub
 
     Private Sub FrmCertificate_Load(sender As Object, e As EventArgs) Handles Me.Load
         Me.TxtPassword.Text = My.Settings.lastPassword
+        Me.LblDGVInfo.Text = vbNullString
     End Sub
 
     Private Sub FrmCertificate_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
@@ -117,4 +125,71 @@ Public Class FrmCertificate
         End If
     End Sub
 
+    Private Sub DgvCertificate_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DgvCertificate.CellValueChanged
+        If DgvCertificate.Columns(e.ColumnIndex).Name = "chkBox" Then
+            Dim checkCell As DataGridViewCheckBoxCell = CType(DgvCertificate.Rows(e.RowIndex).Cells("chkBox"), DataGridViewCheckBoxCell)
+
+            If checkCell.Value = True Then
+                checkCell.Style.BackColor = Color.LightGoldenrodYellow
+                intSelected += 1
+            Else
+                checkCell.Style.BackColor = Color.White
+                intSelected -= 1
+            End If
+            DgvCertificate.Invalidate()
+            UpdateStatusbar()
+        End If
+    End Sub
+
+    Private Sub CmdSelectAll_Click(sender As Object, e As EventArgs) Handles CmdSelectAll.Click
+        For Each row As DataGridViewRow In DgvCertificate.Rows
+            Dim cell As DataGridViewCheckBoxCell = CType(row.Cells("chkBox"), DataGridViewCheckBoxCell)
+            cell.Value = True
+            UpdateStatusbar()
+        Next
+    End Sub
+
+    Private Sub CmdDeselectAll_Click(sender As Object, e As EventArgs) Handles CmdDeselectAll.Click
+        For Each row As DataGridViewRow In DgvCertificate.Rows
+            Dim cell As DataGridViewCheckBoxCell = CType(row.Cells("chkBox"), DataGridViewCheckBoxCell)
+            cell.Value = False
+        Next
+        UpdateStatusbar()
+    End Sub
+
+    Private Sub UpdateStatusbar()
+        If Me.DgvCertificate.RowCount > 0 Then
+            frmMain.TslbCert.Text = String.Format("{0} Zertifikat(e) ausgewählt", intSelected)
+        Else
+            frmMain.TslbCert.Text = vbNullString
+        End If
+    End Sub
+
+    Private Sub FrmCertificate_LostFocus(sender As Object, e As EventArgs) Handles Me.LostFocus
+
+    End Sub
+
+    Private Sub FrmCertificate_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+        UpdateStatusbar()
+    End Sub
+
+    Private Sub FrmCertificate_Deactivate(sender As Object, e As EventArgs) Handles Me.Deactivate
+        frmMain.TslbCert.Text = vbNullString
+    End Sub
+
+    Private Sub FrmCertificate_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+        Dim intPadding = 20
+        If Me.Width < Me.MinimumSize.Width Then Me.Width = Me.MinimumSize.Width
+        Me.CmdAnalyse.Left = Me.Width - intPadding - Me.CmdAnalyse.Width
+        Me.CmdCancel.Left = Me.Width - intPadding - Me.CmdCancel.Width
+        Me.CmdDelete.Left = Me.Width - intPadding - Me.CmdDelete.Width
+        Me.CmdImport.Left = Me.Width - intPadding - Me.CmdImport.Width
+
+        Me.DgvCertificate.Width = Me.Width - (Me.Width - CmdImport.Left) - intPadding
+
+        If Me.Height < Me.MinimumSize.Height Then Me.Height = Me.MinimumSize.Height
+        Me.CmdCancel.Top = Me.Height - intPadding - Me.CmdCancel.Height - frmMain.StatusStrip.Height
+        Me.DgvCertificate.Height = Me.Height - (Me.Height - CmdCancel.Top) - Me.DgvCertificate.Top - 50
+        Me.LblDGVInfo.Top = Me.DgvCertificate.Top + Me.DgvCertificate.Height + intPadding
+    End Sub
 End Class

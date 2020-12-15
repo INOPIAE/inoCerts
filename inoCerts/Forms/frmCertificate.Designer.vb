@@ -40,6 +40,8 @@ Partial Class FrmCertificate
         Me.CmdImport = New System.Windows.Forms.Button()
         Me.CmdDelete = New System.Windows.Forms.Button()
         Me.LblDGVInfo = New System.Windows.Forms.Label()
+        Me.CmdSelectAll = New System.Windows.Forms.Button()
+        Me.CmdDeselectAll = New System.Windows.Forms.Button()
         CType(Me.DgvCertificate, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -54,16 +56,16 @@ Partial Class FrmCertificate
         '
         'CmdFile
         '
-        Me.CmdFile.Location = New System.Drawing.Point(657, 34)
+        Me.CmdFile.Location = New System.Drawing.Point(443, 16)
         Me.CmdFile.Name = "CmdFile"
-        Me.CmdFile.Size = New System.Drawing.Size(75, 23)
+        Me.CmdFile.Size = New System.Drawing.Size(27, 23)
         Me.CmdFile.TabIndex = 1
         Me.CmdFile.Text = "..."
         Me.CmdFile.UseVisualStyleBackColor = True
         '
         'CmdAnalyse
         '
-        Me.CmdAnalyse.Location = New System.Drawing.Point(657, 78)
+        Me.CmdAnalyse.Location = New System.Drawing.Point(657, 61)
         Me.CmdAnalyse.Name = "CmdAnalyse"
         Me.CmdAnalyse.Size = New System.Drawing.Size(75, 23)
         Me.CmdAnalyse.TabIndex = 1
@@ -73,7 +75,7 @@ Partial Class FrmCertificate
         'LblFile
         '
         Me.LblFile.AutoSize = True
-        Me.LblFile.Location = New System.Drawing.Point(39, 39)
+        Me.LblFile.Location = New System.Drawing.Point(9, 22)
         Me.LblFile.Name = "LblFile"
         Me.LblFile.Size = New System.Drawing.Size(76, 13)
         Me.LblFile.TabIndex = 2
@@ -81,7 +83,7 @@ Partial Class FrmCertificate
         '
         'TxtFile
         '
-        Me.TxtFile.Location = New System.Drawing.Point(147, 35)
+        Me.TxtFile.Location = New System.Drawing.Point(117, 18)
         Me.TxtFile.Name = "TxtFile"
         Me.TxtFile.Size = New System.Drawing.Size(320, 20)
         Me.TxtFile.TabIndex = 3
@@ -89,7 +91,7 @@ Partial Class FrmCertificate
         'LblPassword
         '
         Me.LblPassword.AutoSize = True
-        Me.LblPassword.Location = New System.Drawing.Point(39, 78)
+        Me.LblPassword.Location = New System.Drawing.Point(9, 61)
         Me.LblPassword.Name = "LblPassword"
         Me.LblPassword.Size = New System.Drawing.Size(50, 13)
         Me.LblPassword.TabIndex = 2
@@ -97,7 +99,7 @@ Partial Class FrmCertificate
         '
         'TxtPassword
         '
-        Me.TxtPassword.Location = New System.Drawing.Point(147, 74)
+        Me.TxtPassword.Location = New System.Drawing.Point(117, 57)
         Me.TxtPassword.Name = "TxtPassword"
         Me.TxtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TxtPassword.Size = New System.Drawing.Size(320, 20)
@@ -109,7 +111,7 @@ Partial Class FrmCertificate
         Me.DgvCertificate.AllowUserToDeleteRows = False
         Me.DgvCertificate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvCertificate.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.chkBox, Me.Subject, Me.Issuer, Me.IsInTruststore, Me.Truststore, Me.Certstore, Me.CertType})
-        Me.DgvCertificate.Location = New System.Drawing.Point(42, 141)
+        Me.DgvCertificate.Location = New System.Drawing.Point(12, 124)
         Me.DgvCertificate.Name = "DgvCertificate"
         Me.DgvCertificate.Size = New System.Drawing.Size(531, 166)
         Me.DgvCertificate.TabIndex = 7
@@ -169,7 +171,7 @@ Partial Class FrmCertificate
         '
         'CmdImport
         '
-        Me.CmdImport.Location = New System.Drawing.Point(657, 141)
+        Me.CmdImport.Location = New System.Drawing.Point(657, 124)
         Me.CmdImport.Name = "CmdImport"
         Me.CmdImport.Size = New System.Drawing.Size(75, 25)
         Me.CmdImport.TabIndex = 8
@@ -178,7 +180,7 @@ Partial Class FrmCertificate
         '
         'CmdDelete
         '
-        Me.CmdDelete.Location = New System.Drawing.Point(657, 172)
+        Me.CmdDelete.Location = New System.Drawing.Point(657, 155)
         Me.CmdDelete.Name = "CmdDelete"
         Me.CmdDelete.Size = New System.Drawing.Size(75, 25)
         Me.CmdDelete.TabIndex = 8
@@ -188,11 +190,29 @@ Partial Class FrmCertificate
         'LblDGVInfo
         '
         Me.LblDGVInfo.AutoSize = True
-        Me.LblDGVInfo.Location = New System.Drawing.Point(42, 325)
+        Me.LblDGVInfo.Location = New System.Drawing.Point(12, 308)
         Me.LblDGVInfo.Name = "LblDGVInfo"
         Me.LblDGVInfo.Size = New System.Drawing.Size(39, 13)
         Me.LblDGVInfo.TabIndex = 9
         Me.LblDGVInfo.Text = "Label1"
+        '
+        'CmdSelectAll
+        '
+        Me.CmdSelectAll.Location = New System.Drawing.Point(12, 93)
+        Me.CmdSelectAll.Name = "CmdSelectAll"
+        Me.CmdSelectAll.Size = New System.Drawing.Size(88, 25)
+        Me.CmdSelectAll.TabIndex = 8
+        Me.CmdSelectAll.Text = "Alle auswählen"
+        Me.CmdSelectAll.UseVisualStyleBackColor = True
+        '
+        'CmdDeselectAll
+        '
+        Me.CmdDeselectAll.Location = New System.Drawing.Point(117, 93)
+        Me.CmdDeselectAll.Name = "CmdDeselectAll"
+        Me.CmdDeselectAll.Size = New System.Drawing.Size(88, 25)
+        Me.CmdDeselectAll.TabIndex = 8
+        Me.CmdDeselectAll.Text = "Alle abwählen"
+        Me.CmdDeselectAll.UseVisualStyleBackColor = True
         '
         'FrmCertificate
         '
@@ -200,6 +220,8 @@ Partial Class FrmCertificate
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.LblDGVInfo)
+        Me.Controls.Add(Me.CmdDeselectAll)
+        Me.Controls.Add(Me.CmdSelectAll)
         Me.Controls.Add(Me.CmdDelete)
         Me.Controls.Add(Me.CmdImport)
         Me.Controls.Add(Me.DgvCertificate)
@@ -210,6 +232,7 @@ Partial Class FrmCertificate
         Me.Controls.Add(Me.CmdAnalyse)
         Me.Controls.Add(Me.CmdFile)
         Me.Controls.Add(Me.CmdCancel)
+        Me.MinimumSize = New System.Drawing.Size(500, 350)
         Me.Name = "FrmCertificate"
         Me.Text = "Zertifikatsimport in Windowstruststore"
         CType(Me.DgvCertificate, System.ComponentModel.ISupportInitialize).EndInit()
@@ -236,4 +259,6 @@ Partial Class FrmCertificate
     Friend WithEvents Truststore As DataGridViewTextBoxColumn
     Friend WithEvents Certstore As DataGridViewTextBoxColumn
     Friend WithEvents CertType As DataGridViewTextBoxColumn
+    Friend WithEvents CmdSelectAll As Button
+    Friend WithEvents CmdDeselectAll As Button
 End Class

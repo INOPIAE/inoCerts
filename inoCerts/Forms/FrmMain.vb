@@ -1,6 +1,6 @@
 ﻿Imports System.Windows.Forms
 
-Public Class frmMain
+Public Class FrmMain
 
     Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewToolStripMenuItem.Click, NewToolStripButton.Click, NewWindowToolStripMenuItem.Click
         ' Neue Instanz des untergeordneten Formulars erstellen.
@@ -86,7 +86,7 @@ Public Class frmMain
     Private m_ChildFormNumber As Integer
 
     Private Sub ImportWindowsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportWindowsToolStripMenuItem.Click
-        Dim frm As New frmCertificate
+        Dim frm As New FrmCertificate
         With frm
             .MdiParent = Me
             .Show()
@@ -111,4 +111,7 @@ Public Class frmMain
         End With
     End Sub
 
+    Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Me.TslbCert.Text = ""
+    End Sub
 End Class
