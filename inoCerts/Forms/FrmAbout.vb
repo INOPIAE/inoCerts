@@ -1,5 +1,7 @@
-﻿Public NotInheritable Class FrmAbout
+﻿Imports System.Resources
 
+Public NotInheritable Class FrmAbout
+    Private clsLang As New ClsLanguage
     Private Sub FrmAbout_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ' Legen Sie den Titel des Formulars fest.
         Dim ApplicationTitle As String
@@ -8,15 +10,18 @@
         Else
             ApplicationTitle = System.IO.Path.GetFileNameWithoutExtension(My.Application.Info.AssemblyName)
         End If
-        Me.Text = String.Format("Info {0}", ApplicationTitle)
+        Me.Text = String.Format(clsLang.rm.GetString("AboutInfo"), ApplicationTitle)
         ' Initialisieren Sie den gesamten Text, der im Infofeld angezeigt wird.
         ' TODO: Die Assemblyinformationen der Anwendung im Bereich "Anwendung" des Dialogfelds für die 
         '    Projekteigenschaften (im Menü "Projekt") anpassen.
         Me.LabelProductName.Text = My.Application.Info.ProductName
-        Me.LabelVersion.Text = String.Format("Version {0}", My.Application.Info.Version.ToString)
-        Me.LabelCopyright.Text = My.Application.Info.Copyright & " - " & Year(Now)
+        Me.LabelVersion.Text = String.Format(clsLang.rm.GetString("AboutVersion"), My.Application.Info.Version.ToString)
+        Me.LabelCopyright.Text = String.Format(clsLang.rm.GetString("ApplicationCopyright"), Year(Now))
         Me.LabelCompanyName.Text = My.Application.Info.CompanyName
-        Me.TextBoxDescription.Text = My.Application.Info.Description
+        Me.TextBoxDescription.Text = clsLang.rm.GetString("ApplicationDescription")
+
+        Me.CmdLicense.Text = clsLang.rm.GetString("CmdLicense")
+        Me.OKButton.Text = clsLang.rm.GetString("CmdOK")
     End Sub
 
     Private Sub OKButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OKButton.Click
