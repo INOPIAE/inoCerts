@@ -152,4 +152,22 @@
   <data name="SettingsCertFolder" xml:space="preserve">
     <value>Zertifikatsordner</value>
   </data>
+  <data name="CertStoreToolTipTitle" xml:space="preserve">
+    <value>Nutzung von {0}</value>
+  </data>
+  <data name="CertStoreTitle" xml:space="preserve">
+    <value>Auswahl des Zertifikatsstores</value>
+  </data>
+  <data name="CertStoreAdressbook" xml:space="preserve">
+    <value>Wird genutzt für die E-Mail-Zertifikate von Kommunikationspartneren.</value>
+  </data>
+  <data name="CertStoreDisallowed" xml:space="preserve">
+    <value>Wird genutzt für Zertifikate, denen misstraut wird.</value>
+  </data>
+  <data name="CertStoreTrustedPeople" xml:space="preserve">
+    <value>Wird genutzt für Zertifikate, denen vertraut wird.</value>
+  </data>
+  <data name="CertStoreTrustedPublisher" xml:space="preserve">
+    <value>Wird genutzt für Zertifikate, die als vertrauenswürdige Herausgaber von Software gelten sollen.</value>
+  </data>
 </root>

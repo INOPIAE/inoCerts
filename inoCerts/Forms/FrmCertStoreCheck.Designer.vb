@@ -62,7 +62,7 @@ Partial Class FrmCertStoreCheck
         Me.CmdOK.Location = New System.Drawing.Point(221, 264)
         Me.CmdOK.Name = "CmdOK"
         Me.CmdOK.Size = New System.Drawing.Size(70, 25)
-        Me.CmdOK.TabIndex = 2
+        Me.CmdOK.TabIndex = 3
         Me.CmdOK.Text = "OK"
         Me.CmdOK.UseVisualStyleBackColor = True
         '

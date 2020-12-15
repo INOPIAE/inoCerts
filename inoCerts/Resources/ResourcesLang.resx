@@ -162,4 +162,22 @@
   <data name="SettingsCertFolder" xml:space="preserve">
     <value>Certificate folder</value>
   </data>
+  <data name="CertStoreTitle" xml:space="preserve">
+    <value>Choose certificate store</value>
+  </data>
+  <data name="CertStoreAdressbook" xml:space="preserve">
+    <value>Used for email certificate of comminction partners.</value>
+  </data>
+  <data name="CertStoreTrustedPeople" xml:space="preserve">
+    <value>Used for certificates that you trust.</value>
+  </data>
+  <data name="CertStoreTrustedPublisher" xml:space="preserve">
+    <value>Used for certificates that you trust as issuer of software.</value>
+  </data>
+  <data name="CertStoreDisallowed" xml:space="preserve">
+    <value>Used for certificates that you do not trust.</value>
+  </data>
+  <data name="CertStoreToolTipTitle" xml:space="preserve">
+    <value>Use of {0}</value>
+  </data>
 </root>
