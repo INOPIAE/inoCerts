@@ -33,6 +33,7 @@ Public Class ClsCertificate
                         CertStore = storeN
                     End If
                 Next
+                store.Close()
             Next
         Next
     End Sub

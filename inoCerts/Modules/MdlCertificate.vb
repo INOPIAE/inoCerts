@@ -11,6 +11,7 @@ Module MdlCertificate
         Dim store As New X509Store(certstore, truststore)
         store.Open(OpenFlags.ReadWrite)
         store.Add(cert)
+        store.Close()
     End Sub
 
     Public Sub RemoveCertificate(cert As X509Certificate2, truststore As StoreLocation, certstore As StoreName)
@@ -21,6 +22,7 @@ Module MdlCertificate
         Dim store As New X509Store(certstore, truststore)
         store.Open(OpenFlags.ReadWrite)
         store.Remove(cert)
+        store.Close()
     End Sub
 
     Public Function CheckChain(cert As X509Certificate2) As String
@@ -30,9 +32,6 @@ Module MdlCertificate
         Console.WriteLine("Number of chain elements: {0}", ch.ChainElements.Count)
         Dim intCount As Integer = 0
         For Each element As X509ChainElement In ch.ChainElements
-
-
-
             If element.Certificate.Subject.Equals(element.Certificate.Issuer) Then
 
                 Exit For
@@ -59,6 +58,7 @@ Module MdlCertificate
                         Return [Enum].Parse(GetType(StoreLocation), storeL) & ":" & [Enum].Parse(GetType(StoreName), storeN)
                     End If
                 Next
+                store.Close()
             Next
         Next
         Return "Nicht in einem Trusstrore gefunden."
