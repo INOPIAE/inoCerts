@@ -156,4 +156,10 @@
   <data name="MsgFileMissing" xml:space="preserve">
     <value>The given file cannot be found.</value>
   </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SettingsCertFolder" xml:space="preserve">
+    <value>Certificate folder</value>
+  </data>
 </root>
