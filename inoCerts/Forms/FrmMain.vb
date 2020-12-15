@@ -112,6 +112,9 @@ Public Class FrmMain
     End Sub
 
     Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
+        If My.User.IsInRole(ApplicationServices.BuiltInRole.Administrator) = True Then
+            Me.Text = Me.Text & " (wird als Administrator ausgeführt)"
+        End If
         Me.TslbCert.Text = ""
     End Sub
 End Class
