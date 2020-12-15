@@ -138,4 +138,22 @@
   <data name="ApplicationDescription" xml:space="preserve">
     <value>This software is developed under AGPL v3.</value>
   </data>
+  <data name="MsgStartAdmin" xml:space="preserve">
+    <value>The appliciation must be started with "run as Administrator".</value>
+  </data>
+  <data name="CertsNumberOfChainElements" xml:space="preserve">
+    <value>Number of chain elements: {0}</value>
+  </data>
+  <data name="CertsNotInTruststore" xml:space="preserve">
+    <value>Not found in a truststore.</value>
+  </data>
+  <data name="MsgError" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="MsgPassword" xml:space="preserve">
+    <value>The password is missing or wrong.</value>
+  </data>
+  <data name="MsgFileMissing" xml:space="preserve">
+    <value>The given file cannot be found.</value>
+  </data>
 </root>

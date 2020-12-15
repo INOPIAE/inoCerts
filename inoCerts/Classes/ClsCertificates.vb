@@ -3,6 +3,7 @@
 Public Class ClsCertificates
     Public certs() As ClsCertificate
     Public password As String
+    Private clsLang = New ClsLanguage
 
     Public Sub New(strFile As String, strPassword As String, Optional strRoot As String = vbNullString,
                    Optional strStoreLocation As String = vbNullString)
@@ -14,9 +15,9 @@ Public Class ClsCertificates
         Catch exception As System.Security.Cryptography.CryptographicException
             Select Case exception.HResult
                 Case -2147024810
-                    MyMessage("Das Password fehlt oder ist falsch.", "Fehler")
+                    MyMessage(clsLang.rm.getString("MsgPassword"), clsLang.rm.getString("MsgError"))
                 Case -2147024894
-                    MyMessage("Die angegegeben Datei is nicht vorhanden.", "Fehler")
+                    MyMessage(clsLang.rm.getString("MsgFileMissing"), clsLang.rm.getString("MsgError"))
                 Case Else
                     MyMessage(exception.HResult & " " & exception.Message)
                     Debug.Print(exception.HResult)
@@ -63,7 +64,7 @@ Public Class ClsCertificates
         Dim ch As X509Chain = New X509Chain()
         ch.ChainPolicy.RevocationMode = X509RevocationMode.Online
         ch.Build(cert)
-        Console.WriteLine("Number of chain elements: {0}", ch.ChainElements.Count)
+        Console.WriteLine(clsLang.rm.getString("CertsNumberOfChainElements"), ch.ChainElements.Count)
         Dim intCount As Integer = 0
         For Each element As X509ChainElement In ch.ChainElements
 

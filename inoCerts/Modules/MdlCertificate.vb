@@ -2,10 +2,11 @@
 Imports System.Security.Cryptography.X509Certificates
 
 Module MdlCertificate
+    Private clsLang = New ClsLanguage
 
     Public Sub AddCertificate(cert As X509Certificate2, truststore As StoreLocation, certstore As StoreName)
         If My.User.IsInRole(ApplicationServices.BuiltInRole.Administrator) = False And truststore = StoreLocation.LocalMachine Then
-            MyMessage("Das Programm muss als Administrator gestartet werden.")
+            MyMessage(clsLang.rm.getString("MsgStartAdmin"))
             Exit Sub
         End If
         Dim store As New X509Store(certstore, truststore)
@@ -16,7 +17,7 @@ Module MdlCertificate
 
     Public Sub RemoveCertificate(cert As X509Certificate2, truststore As StoreLocation, certstore As StoreName)
         If My.User.IsInRole(ApplicationServices.BuiltInRole.Administrator) = False And truststore = StoreLocation.LocalMachine Then
-            MyMessage("Das Programm muss als Administrator gestartet werden.")
+            MyMessage(clsLang.rm.getString("MsgStartAdmin"))
             Exit Sub
         End If
         Dim store As New X509Store(certstore, truststore)
@@ -29,7 +30,7 @@ Module MdlCertificate
         Dim ch As X509Chain = New X509Chain()
         ch.ChainPolicy.RevocationMode = X509RevocationMode.Online
         ch.Build(cert)
-        Console.WriteLine("Number of chain elements: {0}", ch.ChainElements.Count)
+        Console.WriteLine(clsLang.rm.getString("CertsNumberOfChainElements"), ch.ChainElements.Count)
         Dim intCount As Integer = 0
         For Each element As X509ChainElement In ch.ChainElements
             If element.Certificate.Subject.Equals(element.Certificate.Issuer) Then
@@ -61,7 +62,7 @@ Module MdlCertificate
                 store.Close()
             Next
         Next
-        Return "Nicht in einem Trusstrore gefunden."
+        Return clsLang.rm.getString("CertsNotInTruststore")
     End Function
 
     Public Function CertFromFile(strFile As String)
