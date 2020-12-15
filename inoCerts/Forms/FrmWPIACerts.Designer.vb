@@ -126,7 +126,7 @@ Partial Class FrmWPIACerts
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(455, 450)
+        Me.ClientSize = New System.Drawing.Size(455, 372)
         Me.Controls.Add(Me.CmdOK)
         Me.Controls.Add(Me.CmdCancel)
         Me.Controls.Add(Me.GrpTruststore)
@@ -135,6 +135,7 @@ Partial Class FrmWPIACerts
         Me.Controls.Add(Me.CbCA)
         Me.Controls.Add(Me.LblCA)
         Me.Name = "FrmWPIACerts"
+        Me.ShowIcon = False
         Me.Text = "FrmWPIACerts"
         Me.GrpTruststore.ResumeLayout(False)
         Me.GrpTruststore.PerformLayout()

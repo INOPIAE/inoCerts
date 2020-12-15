@@ -3,7 +3,9 @@ Imports System.Net
 Imports System.Security.Cryptography.X509Certificates
 
 Public Class FrmWPIACerts
+    Private clsLang = New ClsLanguage
     Private strStoreLocation As String = "LocalMachine"
+
     Private Sub CmdCancel_Click(sender As Object, e As EventArgs) Handles CmdCancel.Click
         Me.Close()
     End Sub
@@ -11,7 +13,7 @@ Public Class FrmWPIACerts
     Private Sub CmdOK_Click(sender As Object, e As EventArgs) Handles CmdOK.Click
 
         If My.User.IsInRole(ApplicationServices.BuiltInRole.Administrator) = False And RbLocalMachine.Checked Then
-            MyMessage("Das Programm muss als Administrator gestartet werden.")
+            MyMessage(clsLang.rm.getString("MsgStartAdmin"))
             Exit Sub
         End If
 
@@ -38,10 +40,10 @@ Public Class FrmWPIACerts
                 client.DownloadFile(URLRoot, RootFile)
                 Dim cert As X509Certificate2 = CertFromFile(RootFile)
                 If FindCertificateInTrustsore(cert).Contains(":") Then
-                    MyMessage("Root-Zertifikat ist schon importiert.")
+                    MyMessage(clsLang.rm.getString("MsgRootExist"))
                 Else
                     AddCertificate(cert, [Enum].Parse(GetType(StoreLocation), strStoreLocation), StoreName.Root)
-                    MyMessage("Root-Zertifikat wurde erfolgreich importiert.")
+                    MyMessage(clsLang.rm.getString("MsgRootImported"))
                 End If
             End If
             If ChkIntermediate.Checked Then
@@ -49,7 +51,7 @@ Public Class FrmWPIACerts
                 Dim frm As New FrmCertificate
                 With frm
                     .TxtFile.Text = IntermediateFile
-                    .MdiParent = frmMain
+                    .MdiParent = FrmMain
                     .Show()
                     .WindowState = FormWindowState.Maximized
                     .strRoot = "intermediate"
@@ -67,6 +69,14 @@ Public Class FrmWPIACerts
             .Items.Add("Test1")
             .SelectedIndex = 0
         End With
+        Me.Text = clsLang.rm.getString("CertWPIATitle")
+        Me.CmdCancel.Text = clsLang.rm.getString("CmdCancel")
+        Me.CmdOK.Text = clsLang.rm.getString("CmdOK")
+        Me.LblCA.Text = clsLang.rm.getString("CertWPIACA")
+        Me.ChkRoot.Text = clsLang.rm.getString("CertWPIARoot")
+        Me.ChkIntermediate.Text = clsLang.rm.getString("CertWPIAIntermediate")
+        Me.RbLocalMachine.Text = clsLang.rm.getString("CertWPIALocalMachine")
+        Me.RbUser.Text = clsLang.rm.getString("CertWPIACurrentUser")
     End Sub
 
     Private Sub RbLocalMachine_Click(sender As Object, e As EventArgs) Handles RbLocalMachine.Click
