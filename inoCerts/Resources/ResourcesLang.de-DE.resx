@@ -170,4 +170,97 @@
   <data name="CertStoreTrustedPublisher" xml:space="preserve">
     <value>Wird genutzt für Zertifikate, die als vertrauenswürdige Herausgaber von Software gelten sollen.</value>
   </data>
+  <data name="CertWPIACA" xml:space="preserve">
+    <value>Wähle WPIA CA</value>
+  </data>
+  <data name="CertWPIACurrentUser" xml:space="preserve">
+    <value>Aktueller Benutzer</value>
+  </data>
+  <data name="CertWPIAIntermediate" xml:space="preserve">
+    <value>Zwischenzertifikate (*.p7b)</value>
+  </data>
+  <data name="CertWPIALocalMachine" xml:space="preserve">
+    <value>Lokaler Computer</value>
+  </data>
+  <data name="CertWPIARoot" xml:space="preserve">
+    <value>Rootzertifikat</value>
+  </data>
+  <data name="CertWPIATitle" xml:space="preserve">
+    <value>Import von WPIA Rootzertifikaten</value>
+  </data>
+  <data name="MsgRootExists" xml:space="preserve">
+    <value>Root-Zertifikat ist schon importiert.</value>
+  </data>
+  <data name="MsgRootImported" xml:space="preserve">
+    <value>Root-Zertifikat wurde erfolgreich importiert.</value>
+  </data>
+  <data name="MsgCancelImport" xml:space="preserve">
+    <value>Import abgebrochen.</value>
+  </data>
+  <data name="MsgCertstoreNotDefined" xml:space="preserve">
+    <value>Zertifikatsspeicher nicht definiert.</value>
+  </data>
+  <data name="CertImportFileFilter" xml:space="preserve">
+    <value>Zertifikate {0} | Alle Dateien ({1}) | {2}</value>
+  </data>
+  <data name="CertImportRead" xml:space="preserve">
+    <value>Zertifikate werden eingelesen.</value>
+  </data>
+  <data name="CertImportStatusMsg" xml:space="preserve">
+    <value>Datei enthält {0} Zertifikate</value>
+  </data>
+  <data name="CertImportInTruststore" xml:space="preserve">
+    <value>Installiert</value>
+  </data>
+  <data name="CertImportCertStoreLabel" xml:space="preserve">
+    <value>"Zertifikatsstore für {0}:</value>
+  </data>
+  <data name="CertImportTitle" xml:space="preserve">
+    <value>Zertifikatsimport in Windowstruststore</value>
+  </data>
+  <data name="CertImportPassword" xml:space="preserve">
+    <value>Passwort:</value>
+  </data>
+  <data name="CertImportIssuer" xml:space="preserve">
+    <value>Aussteller</value>
+  </data>
+  <data name="CertImportCertType" xml:space="preserve">
+    <value>Zertifikatstyp</value>
+  </data>
+  <data name="CertImportCertstore" xml:space="preserve">
+    <value>Zertifikatsspreicher</value>
+  </data>
+  <data name="CertImportCertFile" xml:space="preserve">
+    <value>Zertifikatsdatei:</value>
+  </data>
+  <data name="CertImportTruststore" xml:space="preserve">
+    <value>Truststore</value>
+  </data>
+  <data name="CertImportSubject" xml:space="preserve">
+    <value>CN</value>
+  </data>
+  <data name="CertImportSelect" xml:space="preserve">
+    <value>Auswahl</value>
+  </data>
+  <data name="CmdAnalyse" xml:space="preserve">
+    <value>Analysieren</value>
+  </data>
+  <data name="CmdClose" xml:space="preserve">
+    <value>Schließen</value>
+  </data>
+  <data name="CmdDelete" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="CmdDeselectAll" xml:space="preserve">
+    <value>Alle abwählen</value>
+  </data>
+  <data name="CmdImport" xml:space="preserve">
+    <value>Importieren</value>
+  </data>
+  <data name="CmdSelectAll" xml:space="preserve">
+    <value>Alle auswählen</value>
+  </data>
+  <data name="MsgCertInTruststore" xml:space="preserve">
+    <value>Zertifikat schon im Truststore vorhanden.</value>
+  </data>
 </root>

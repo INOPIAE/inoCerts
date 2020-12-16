@@ -6,12 +6,14 @@ Public Class FrmCertificate
     Public strRoot As String = vbNullString
     Public strStoreLocation As String = vbNullString
     Private intSelected As Int16
+    Private clsLang = New ClsLanguage
+
 
     Private Sub CmdFile_Click(sender As Object, e As EventArgs) Handles CmdFile.Click
         Dim ofd As New OpenFileDialog
         With ofd
             .Multiselect = False
-            .Filter = "Zertifikate (*.cer, *. p7b, *.p12, )|*.p12; *.cer; *.p7b|Alle Dateien (*.*)|*.*"
+            .Filter = String.Format(clsLang.rm.getString("CertImportFileFilter"), "(*.cer, *. p7b, *.p12)|*.p12; *.cer; *.p7b", "*.*", "*.*")
             .InitialDirectory = My.Settings.lastPath
             If .ShowDialog = DialogResult.OK Then
                 My.Settings.lastPath = System.IO.Path.GetFullPath(.FileName)
@@ -20,18 +22,18 @@ Public Class FrmCertificate
         End With
     End Sub
 
-    Private Sub CmdCancel_Click(sender As Object, e As EventArgs) Handles CmdCancel.Click
+    Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles CmdClose.Click
         Me.Close()
     End Sub
 
     Private Sub CmdAnalyse_Click(sender As Object, e As EventArgs) Handles CmdAnalyse.Click
-        LblDGVInfo.Text = "Zertifikate werden eingelesen"
+        LblDGVInfo.Text = clsLang.rm.getString("CertImportRead")
         LblDGVInfo.BackColor = Color.Coral
         Application.DoEvents()
         certfile = New ClsCertificates(Me.TxtFile.Text, Me.TxtPassword.Text, strRoot, strStoreLocation)
 
         fillDatagrid()
-        LblDGVInfo.Text = String.Format("Datei enthält {0} Zertifikate", certfile.certs.Count)
+        LblDGVInfo.Text = String.Format(clsLang.rm.getString("CertImportStatusMsg"), certfile.certs.Count)
         LblDGVInfo.BackColor = Me.BackColor
     End Sub
 
@@ -54,6 +56,27 @@ Public Class FrmCertificate
     Private Sub FrmCertificate_Load(sender As Object, e As EventArgs) Handles Me.Load
         Me.TxtPassword.Text = My.Settings.lastPassword
         Me.LblDGVInfo.Text = vbNullString
+
+        Me.Text = clsLang.rm.getString("CertImportTitle")
+        Me.LblFile.Text = clsLang.rm.getString("CertImportCertFile")
+        Me.LblPassword.Text = clsLang.rm.getString("CertImportPassword")
+        Me.CmdAnalyse.Text = clsLang.rm.getString("CmdAnalyse")
+        Me.CmdClose.Text = clsLang.rm.getString("CmdClose")
+        Me.CmdDelete.Text = clsLang.rm.getString("CmdDelete")
+        Me.CmdDeselectAll.Text = clsLang.rm.getString("CmdDeselectAll")
+        Me.CmdImport.Text = clsLang.rm.getString("CmdImport")
+        Me.CmdSelectAll.Text = clsLang.rm.getString("CmdSelectAll")
+
+        With DgvCertificate
+            .Columns(0).HeaderCell.Value = clsLang.rm.getString("CertImportSelect")
+            .Columns(1).HeaderCell.Value = clsLang.rm.getString("CertImportSubject")
+            .Columns(2).HeaderCell.Value = clsLang.rm.getString("CertImportIssuer")
+            .Columns(3).HeaderCell.Value = clsLang.rm.getString("CertImportInTruststore")
+            .Columns(4).HeaderCell.Value = clsLang.rm.getString("CertImportTruststore")
+            .Columns(5).HeaderCell.Value = clsLang.rm.getString("CertImportCertstore")
+            .Columns(6).HeaderCell.Value = clsLang.rm.getString("CertImportCertType")
+        End With
+
     End Sub
 
     Private Sub FrmCertificate_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
@@ -65,7 +88,7 @@ Public Class FrmCertificate
         For Each r As DataGridViewRow In Me.DgvCertificate.Rows
             If r.Cells("chkBox").Value = True Then
                 If r.Cells("IsInTruststore").Value = True Then
-                    MyMessage("Zertifikat schon im Truststore")
+                    MyMessage(clsLang.rm.getString("MsgCertInTruststore"))
                     Continue For
                 End If
                 Dim storeL As StoreLocation = StoreLocation.LocalMachine
@@ -78,11 +101,11 @@ Public Class FrmCertificate
                             storeN = StoreName.My
                         Else
                             Dim frm As New FrmCertStoreCheck
-                            frm.LblCertStore.Text = "Zertifikatsstore für" & vbNewLine & r.Cells("Subject").Value & ":"
+                            frm.LblCertStore.Text = String.Format(clsLang.rm.getString("CertImportCertStoreLabel"), vbNewLine & r.Cells("Subject").Value)
                             If frm.ShowDialog = DialogResult.OK Then
                                 storeN = [Enum].Parse(GetType(StoreName), frm.LbStore.SelectedItem)
                             Else
-                                MyMessage("Import abgebrochen")
+                                MyMessage(clsLang.rm.getString("MsgCancelImport"))
                                 Continue For
                             End If
                         End If
@@ -97,7 +120,7 @@ Public Class FrmCertificate
                         'TODO check correct store
                         storeN = StoreName.My
                         storeL = StoreLocation.CurrentUser
-                        MyMessage("Zertifikatstore not defined")
+                        MyMessage(clsLang.rm.getString("MsgCertstoreNotDefined"))
                         Continue For
                 End Select
 
@@ -126,7 +149,7 @@ Public Class FrmCertificate
     End Sub
 
     Private Sub DgvCertificate_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DgvCertificate.CellValueChanged
-        If DgvCertificate.Columns(e.ColumnIndex).Name = "chkBox" Then
+        If DgvCertificate.Columns(e.ColumnIndex).Name = "chkBox" And DgvCertificate.Rows.Count > 0 Then
             Dim checkCell As DataGridViewCheckBoxCell = CType(DgvCertificate.Rows(e.RowIndex).Cells("chkBox"), DataGridViewCheckBoxCell)
 
             If checkCell.Value = True Then
@@ -159,14 +182,10 @@ Public Class FrmCertificate
 
     Private Sub UpdateStatusbar()
         If Me.DgvCertificate.RowCount > 0 Then
-            frmMain.TslbCert.Text = String.Format("{0} Zertifikat(e) ausgewählt", intSelected)
+            FrmMain.TslbCert.Text = String.Format("{0} Zertifikat(e) ausgewählt", intSelected)
         Else
-            frmMain.TslbCert.Text = vbNullString
+            FrmMain.TslbCert.Text = vbNullString
         End If
-    End Sub
-
-    Private Sub FrmCertificate_LostFocus(sender As Object, e As EventArgs) Handles Me.LostFocus
-
     End Sub
 
     Private Sub FrmCertificate_Activated(sender As Object, e As EventArgs) Handles Me.Activated
@@ -174,22 +193,22 @@ Public Class FrmCertificate
     End Sub
 
     Private Sub FrmCertificate_Deactivate(sender As Object, e As EventArgs) Handles Me.Deactivate
-        frmMain.TslbCert.Text = vbNullString
+        FrmMain.TslbCert.Text = vbNullString
     End Sub
 
     Private Sub FrmCertificate_Resize(sender As Object, e As EventArgs) Handles Me.Resize
         Dim intPadding = 20
         If Me.Width < Me.MinimumSize.Width Then Me.Width = Me.MinimumSize.Width
         Me.CmdAnalyse.Left = Me.Width - intPadding - Me.CmdAnalyse.Width
-        Me.CmdCancel.Left = Me.Width - intPadding - Me.CmdCancel.Width
+        Me.CmdClose.Left = Me.Width - intPadding - Me.CmdClose.Width
         Me.CmdDelete.Left = Me.Width - intPadding - Me.CmdDelete.Width
         Me.CmdImport.Left = Me.Width - intPadding - Me.CmdImport.Width
 
         Me.DgvCertificate.Width = Me.Width - (Me.Width - CmdImport.Left) - intPadding
 
         If Me.Height < Me.MinimumSize.Height Then Me.Height = Me.MinimumSize.Height
-        Me.CmdCancel.Top = Me.Height - intPadding - Me.CmdCancel.Height - frmMain.StatusStrip.Height
-        Me.DgvCertificate.Height = Me.Height - (Me.Height - CmdCancel.Top) - Me.DgvCertificate.Top - 50
+        Me.CmdClose.Top = Me.Height - intPadding - Me.CmdClose.Height - FrmMain.StatusStrip.Height
+        Me.DgvCertificate.Height = Me.Height - (Me.Height - CmdClose.Top) - Me.DgvCertificate.Top - 50
         Me.LblDGVInfo.Top = Me.DgvCertificate.Top + Me.DgvCertificate.Height + intPadding
     End Sub
 End Class

@@ -180,4 +180,97 @@
   <data name="CertStoreToolTipTitle" xml:space="preserve">
     <value>Use of {0}</value>
   </data>
+  <data name="CertWPIACA" xml:space="preserve">
+    <value>Select from WPIA's CA</value>
+  </data>
+  <data name="CertWPIARoot" xml:space="preserve">
+    <value>Root certificate</value>
+  </data>
+  <data name="CertWPIAIntermediate" xml:space="preserve">
+    <value>Intermediate certificates (*.p7b)</value>
+  </data>
+  <data name="CertWPIALocalMachine" xml:space="preserve">
+    <value>Locale machine</value>
+  </data>
+  <data name="CertWPIACurrentUser" xml:space="preserve">
+    <value>Current User</value>
+  </data>
+  <data name="CertWPIATitle" xml:space="preserve">
+    <value>Import of WPIA root certificates</value>
+  </data>
+  <data name="MsgRootExists" xml:space="preserve">
+    <value>Root certificate is already imported.</value>
+  </data>
+  <data name="MsgRootImported" xml:space="preserve">
+    <value>Root certificate successful imported.</value>
+  </data>
+  <data name="CertImportCertFile" xml:space="preserve">
+    <value>Certificate file:</value>
+  </data>
+  <data name="CertImportPassword" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="CertImportTitle" xml:space="preserve">
+    <value>Certificate import into Windows trusstore</value>
+  </data>
+  <data name="CmdSelectAll" xml:space="preserve">
+    <value>Select all</value>
+  </data>
+  <data name="CmdDeselectAll" xml:space="preserve">
+    <value>Deselect all</value>
+  </data>
+  <data name="CmdAnalyse" xml:space="preserve">
+    <value>Analyse</value>
+  </data>
+  <data name="CmdImport" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="CmdDelete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="CmdClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="CertImportSelect" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="CertImportSubject" xml:space="preserve">
+    <value>Subject (CN)</value>
+  </data>
+  <data name="CertImportIssuer" xml:space="preserve">
+    <value>Issuer</value>
+  </data>
+  <data name="CertImportInTruststore" xml:space="preserve">
+    <value>Installed</value>
+  </data>
+  <data name="CertImportTruststore" xml:space="preserve">
+    <value>Truststore</value>
+  </data>
+  <data name="CertImportCertstore" xml:space="preserve">
+    <value>Certificatestore</value>
+  </data>
+  <data name="CertImportCertType" xml:space="preserve">
+    <value>Certificate Type</value>
+  </data>
+  <data name="CertImportFileFilter" xml:space="preserve">
+    <value>Certificate {0} | All files ({1}) | {2}</value>
+  </data>
+  <data name="CertImportRead" xml:space="preserve">
+    <value>Certificates are processed.</value>
+  </data>
+  <data name="MsgCertInTruststore" xml:space="preserve">
+    <value>Certificate already install in truststore.</value>
+  </data>
+  <data name="MsgCancelImport" xml:space="preserve">
+    <value>Import canceled.</value>
+  </data>
+  <data name="CertImportCertStoreLabel" xml:space="preserve">
+    <value>Certificatestore for  {0}:</value>
+  </data>
+  <data name="MsgCertstoreNotDefined" xml:space="preserve">
+    <value>Certificatestore not defined.</value>
+  </data>
+  <data name="CertImportStatusMsg" xml:space="preserve">
+    <value>File contains  {0} certificates</value>
+  </data>
 </root>

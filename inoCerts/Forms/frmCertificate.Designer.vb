@@ -22,7 +22,7 @@ Partial Class FrmCertificate
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.CmdCancel = New System.Windows.Forms.Button()
+        Me.CmdClose = New System.Windows.Forms.Button()
         Me.CmdFile = New System.Windows.Forms.Button()
         Me.CmdAnalyse = New System.Windows.Forms.Button()
         Me.LblFile = New System.Windows.Forms.Label()
@@ -45,14 +45,14 @@ Partial Class FrmCertificate
         CType(Me.DgvCertificate, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'CmdCancel
+        'CmdClose
         '
-        Me.CmdCancel.Location = New System.Drawing.Point(657, 387)
-        Me.CmdCancel.Name = "CmdCancel"
-        Me.CmdCancel.Size = New System.Drawing.Size(75, 23)
-        Me.CmdCancel.TabIndex = 0
-        Me.CmdCancel.Text = "Schließen"
-        Me.CmdCancel.UseVisualStyleBackColor = True
+        Me.CmdClose.Location = New System.Drawing.Point(657, 387)
+        Me.CmdClose.Name = "CmdClose"
+        Me.CmdClose.Size = New System.Drawing.Size(75, 23)
+        Me.CmdClose.TabIndex = 0
+        Me.CmdClose.Text = "Schließen"
+        Me.CmdClose.UseVisualStyleBackColor = True
         '
         'CmdFile
         '
@@ -231,7 +231,7 @@ Partial Class FrmCertificate
         Me.Controls.Add(Me.LblFile)
         Me.Controls.Add(Me.CmdAnalyse)
         Me.Controls.Add(Me.CmdFile)
-        Me.Controls.Add(Me.CmdCancel)
+        Me.Controls.Add(Me.CmdClose)
         Me.MinimumSize = New System.Drawing.Size(500, 350)
         Me.Name = "FrmCertificate"
         Me.Text = "Zertifikatsimport in Windowstruststore"
@@ -241,7 +241,7 @@ Partial Class FrmCertificate
 
     End Sub
 
-    Friend WithEvents CmdCancel As Button
+    Friend WithEvents CmdClose As Button
     Friend WithEvents CmdFile As Button
     Friend WithEvents CmdAnalyse As Button
     Friend WithEvents LblFile As Label
