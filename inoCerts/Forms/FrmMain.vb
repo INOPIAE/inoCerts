@@ -1,6 +1,7 @@
 ﻿Imports System.Windows.Forms
 
 Public Class FrmMain
+    Private clsLang = New ClsLanguage
 
     Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewToolStripMenuItem.Click, NewToolStripButton.Click, NewWindowToolStripMenuItem.Click
         ' Neue Instanz des untergeordneten Formulars erstellen.
@@ -9,7 +10,7 @@ Public Class FrmMain
         ChildForm.MdiParent = Me
 
         m_ChildFormNumber += 1
-        ChildForm.Text = "Fenster " & m_ChildFormNumber
+        ChildForm.Text = String.Format("{0} {1}", clsLang.rm.getString("MainWindowEntry"), m_ChildFormNumber)
 
         ChildForm.Show()
     End Sub
@@ -113,8 +114,29 @@ Public Class FrmMain
 
     Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
         If My.User.IsInRole(ApplicationServices.BuiltInRole.Administrator) = True Then
-            Me.Text = Me.Text & " (wird als Administrator ausgeführt)"
+            Me.Text = String.Format("{0} ({1})", Me.Text, clsLang.rm.getString("MainRunAsAdmin"))
         End If
         Me.TslbCert.Text = ""
+
+        Me.FileMenu.Text = clsLang.rm.getString("MainFile")
+        Me.ExitToolStripMenuItem.Text = clsLang.rm.getString("MainQuit")
+        Me.ViewMenu.Text = clsLang.rm.getString("MainView")
+        Me.StatusBarToolStripMenuItem.Text = clsLang.rm.getString("MainStatusbar")
+        Me.ZertifikateToolStripMenuItem.Text = clsLang.rm.getString("MainCertificates")
+        Me.ImportWindowsToolStripMenuItem.Text = clsLang.rm.getString("MainImportWindows")
+        Me.WPIARootzertifikateToolStripMenuItem.Text = clsLang.rm.getString("MainWPIARoot")
+        Me.ToolsMenu.Text = clsLang.rm.getString("MainTools")
+        Me.OptionsToolStripMenuItem.Text = clsLang.rm.getString("MainOptions")
+        Me.WindowsMenu.Text = clsLang.rm.getString("MainWindow")
+        Me.NewWindowToolStripMenuItem.Text = clsLang.rm.getString("MainNewWindow")
+        Me.CascadeToolStripMenuItem.Text = clsLang.rm.getString("MainWindowsCascade")
+        Me.TileVerticalToolStripMenuItem.Text = clsLang.rm.getString("MainWindowsVertical")
+        Me.TileHorizontalToolStripMenuItem.Text = clsLang.rm.getString("MainWindowsHorizontal")
+        Me.CloseAllToolStripMenuItem.Text = clsLang.rm.getString("MainWindowsCloseAll")
+        Me.ArrangeIconsToolStripMenuItem.Text = clsLang.rm.getString("MainWindowsArrangeIcons")
+        Me.HelpMenu.Text = clsLang.rm.getString("MainTools")
+        Me.AboutToolStripMenuItem.Text = clsLang.rm.getString("MainAbout")
+
+        Me.ToolStripStatusLabel.Text = clsLang.rm.getString("MainStatus")
     End Sub
 End Class

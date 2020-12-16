@@ -263,4 +263,64 @@
   <data name="MsgCertInTruststore" xml:space="preserve">
     <value>Zertifikat schon im Truststore vorhanden.</value>
   </data>
+  <data name="MainWindowEntry" xml:space="preserve">
+    <value>Fenster</value>
+  </data>
+  <data name="MainRunAsAdmin" xml:space="preserve">
+    <value>wird als Administrator ausgeführt</value>
+  </data>
+  <data name="MainCertificates" xml:space="preserve">
+    <value>Zertifikate</value>
+  </data>
+  <data name="MainFile" xml:space="preserve">
+    <value>Datei</value>
+  </data>
+  <data name="MainImportWindows" xml:space="preserve">
+    <value>Importiere Zertifikat in Windows Truststore</value>
+  </data>
+  <data name="MainAbout" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="MainNewWindow" xml:space="preserve">
+    <value>Neues Fenster</value>
+  </data>
+  <data name="MainOptions" xml:space="preserve">
+    <value>Optionen</value>
+  </data>
+  <data name="MainQuit" xml:space="preserve">
+    <value>Beenden</value>
+  </data>
+  <data name="MainStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="MainStatusbar" xml:space="preserve">
+    <value>Statusleiste</value>
+  </data>
+  <data name="MainTools" xml:space="preserve">
+    <value>Extras</value>
+  </data>
+  <data name="MainView" xml:space="preserve">
+    <value>Ansicht</value>
+  </data>
+  <data name="MainWindow" xml:space="preserve">
+    <value>Fenster</value>
+  </data>
+  <data name="MainWindowsArrangeIcons" xml:space="preserve">
+    <value>Symbole anordnen</value>
+  </data>
+  <data name="MainWindowsCloseAll" xml:space="preserve">
+    <value>Alle Fenster schließen</value>
+  </data>
+  <data name="MainWindowsHorizontal" xml:space="preserve">
+    <value>Nebeneinander</value>
+  </data>
+  <data name="MainWindowsCascade" xml:space="preserve">
+    <value>Überlappend</value>
+  </data>
+  <data name="MainWindowsVertical" xml:space="preserve">
+    <value>Übereinander</value>
+  </data>
+  <data name="MainWPIARoot" xml:space="preserve">
+    <value>WPIA Root-Zertifikate</value>
+  </data>
 </root>

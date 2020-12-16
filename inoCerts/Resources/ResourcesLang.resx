@@ -273,4 +273,64 @@
   <data name="CertImportStatusMsg" xml:space="preserve">
     <value>File contains  {0} certificates</value>
   </data>
+  <data name="MainFile" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="MainQuit" xml:space="preserve">
+    <value>Quit</value>
+  </data>
+  <data name="MainView" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="MainStatusbar" xml:space="preserve">
+    <value>Statusbar</value>
+  </data>
+  <data name="MainCertificates" xml:space="preserve">
+    <value>Certificates</value>
+  </data>
+  <data name="MainImportWindows" xml:space="preserve">
+    <value>Import certificate to Windows Truststore</value>
+  </data>
+  <data name="MainWPIARoot" xml:space="preserve">
+    <value>WPIA root certificates</value>
+  </data>
+  <data name="MainTools" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="MainOptions" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="MainWindow" xml:space="preserve">
+    <value>Windows</value>
+  </data>
+  <data name="MainNewWindow" xml:space="preserve">
+    <value>New Window</value>
+  </data>
+  <data name="MainWindowsCascade" xml:space="preserve">
+    <value>Cascade</value>
+  </data>
+  <data name="MainWindowsHorizontal" xml:space="preserve">
+    <value>Horizontal</value>
+  </data>
+  <data name="MainWindowsVertical" xml:space="preserve">
+    <value>Vertical</value>
+  </data>
+  <data name="MainWindowsCloseAll" xml:space="preserve">
+    <value>Close all windows</value>
+  </data>
+  <data name="MainWindowsArrangeIcons" xml:space="preserve">
+    <value>Arrange Symbols</value>
+  </data>
+  <data name="MainAbout" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="MainStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="MainWindowEntry" xml:space="preserve">
+    <value>Window</value>
+  </data>
+  <data name="MainRunAsAdmin" xml:space="preserve">
+    <value>run as adminstrator</value>
+  </data>
 </root>
