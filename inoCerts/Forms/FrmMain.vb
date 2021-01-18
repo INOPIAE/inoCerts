@@ -148,4 +148,13 @@ Public Class FrmMain
             .WindowState = FormWindowState.Maximized
         End With
     End Sub
+
+    Private Sub ZertifikatAnfordernToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ZertifikatAnfordernToolStripMenuItem.Click
+        Dim frm As New FrmApi
+        With frm
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+    End Sub
 End Class

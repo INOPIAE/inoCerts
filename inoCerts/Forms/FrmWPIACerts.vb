@@ -4,6 +4,7 @@ Imports System.Security.Cryptography.X509Certificates
 
 Public Class FrmWPIACerts
     Private strStoreLocation As String = "LocalMachine"
+    Private cCA As New ClsCAInfo
 
     Private Sub CmdCancel_Click(sender As Object, e As EventArgs) Handles CmdCancel.Click
         Me.Close()
@@ -16,17 +17,9 @@ Public Class FrmWPIACerts
             Exit Sub
         End If
 
-        Dim URLRoot As String = ""
-        Dim URLIntermediate As String = ""
-
-        Select Case CbCA.Text
-            Case "InterimCA"
-                URLRoot = "https://www.interimca-tc.xyz/roots?cer"
-                URLIntermediate = "https://www.interimca-tc.xyz/roots?bundle"
-            Case "Test1"
-                URLRoot = "https://www.test1.backup.dogcraft.de/roots?cer"
-                URLIntermediate = "https://www.test1.backup.dogcraft.de/roots?bundle"
-        End Select
+        Dim URL As String = cCA.GetURLByName(CbCA.Text)
+        Dim URLRoot As String = "https://www." & URL & "/roots?cer"
+        Dim URLIntermediate As String = "https://www." & URL & "/roots?bundle"
 
         If Directory.Exists(My.Settings.CertFolder) = False Then
             FrmSettings.Show()
@@ -64,8 +57,9 @@ Public Class FrmWPIACerts
 
     Private Sub FrmWPIACerts_Load(sender As Object, e As EventArgs) Handles Me.Load
         With CbCA
-            .Items.Add("InterimCA")
-            .Items.Add("Test1")
+            For Each ca As ClsCAInfo.CAInfo In cCA.CAInfos
+                .Items.Add(ca.CAName)
+            Next
             .SelectedIndex = 0
         End With
         Me.Text = clsLang.rm.getString("CertWPIATitle")

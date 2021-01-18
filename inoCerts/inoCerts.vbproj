@@ -98,20 +98,29 @@
     <Import Include="System.Data" />
     <Import Include="System.Drawing" />
     <Import Include="System.Diagnostics" />
+    <Import Include="System.Web" />
     <Import Include="System.Windows.Forms" />
     <Import Include="System.Linq" />
     <Import Include="System.Xml.Linq" />
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ClsCAInfo.vb" />
     <Compile Include="Classes\ClsCertificate.vb" />
     <Compile Include="Classes\ClsCertificates.vb" />
     <Compile Include="Classes\ClsLanguage.vb" />
     <Compile Include="Classes\ClsMozilla.vb" />
+    <Compile Include="Classes\ClsOpenSSL.vb" />
     <Compile Include="Forms\FrmAbout.Designer.vb">
       <DependentUpon>FrmAbout.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmAbout.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmApi.Designer.vb">
+      <DependentUpon>FrmApi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmApi.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FrmCertificate.vb">
@@ -180,6 +189,9 @@
     <EmbeddedResource Include="Forms\FrmAbout.resx">
       <DependentUpon>FrmAbout.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmApi.resx">
+      <DependentUpon>FrmApi.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmCertificate.resx">
       <DependentUpon>FrmCertificate.vb</DependentUpon>
     </EmbeddedResource>
@@ -228,6 +240,9 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="Settings\ca.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

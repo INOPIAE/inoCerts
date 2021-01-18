@@ -4,6 +4,7 @@ Imports System.Security.Cryptography.X509Certificates
 
 Public Class FrmMozilla
     Private cMozilla As New ClsMozilla
+    Private cCA As New ClsCAInfo
 
     Enum ImportType
         Root
@@ -38,8 +39,9 @@ Public Class FrmMozilla
         Next
 
         With CbCA
-            .Items.Add("InterimCA")
-            .Items.Add("Test1")
+            For Each ca As ClsCAInfo.CAInfo In cCA.CAInfos
+                .Items.Add(ca.CAName)
+            Next
             .SelectedIndex = 0
         End With
 
@@ -59,17 +61,9 @@ Public Class FrmMozilla
     End Sub
 
     Private Sub CmdOK_Click(sender As Object, e As EventArgs)
-        Dim URLRoot As String = ""
-        Dim URLIntermediate As String = ""
-
-        Select Case CbCA.Text
-            Case "InterimCA"
-                URLRoot = "https://www.interimca-tc.xyz/roots?cer"
-                URLIntermediate = "https://www.interimca-tc.xyz/roots?bundle"
-            Case "Test1"
-                URLRoot = "https://www.test1.backup.dogcraft.de/roots?cer"
-                URLIntermediate = "https://www.test1.backup.dogcraft.de/roots?bundle"
-        End Select
+        Dim URL As String = cCA.GetURLByName(CbCA.Text)
+        Dim URLRoot As String = "https://www." & URL & "/roots?cer"
+        Dim URLIntermediate As String = "https://www." & URL & "/roots?bundle"
 
         If Directory.Exists(My.Settings.CertFolder) = False Then
             FrmSettings.Show()

@@ -101,6 +101,30 @@ Namespace My
                 Me("CertUtilFolder") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property CSR() As String
+            Get
+                Return CType(Me("CSR"),String)
+            End Get
+            Set
+                Me("CSR") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property lastCA() As String
+            Get
+                Return CType(Me("lastCA"),String)
+            End Get
+            Set
+                Me("lastCA") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

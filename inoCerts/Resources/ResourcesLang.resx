@@ -354,4 +354,46 @@
   <data name="MsgErrorOccurs" xml:space="preserve">
     <value>The following error occurs:</value>
   </data>
+  <data name="CmdCSR" xml:space="preserve">
+    <value>Generate CSR</value>
+  </data>
+  <data name="CmdCertificate" xml:space="preserve">
+    <value>Generate Certificate</value>
+  </data>
+  <data name="CmdP12" xml:space="preserve">
+    <value>Generate P12 file</value>
+  </data>
+  <data name="CmdCertAll" xml:space="preserve">
+    <value>All Steps</value>
+  </data>
+  <data name="ApiProfile" xml:space="preserve">
+    <value>Certificate Profile:</value>
+  </data>
+  <data name="ApiCN" xml:space="preserve">
+    <value>Name in certificate (CN):</value>
+  </data>
+  <data name="ApiEmail" xml:space="preserve">
+    <value>Email:</value>
+  </data>
+  <data name="ApiCSR" xml:space="preserve">
+    <value>Certificate Request (CSR):</value>
+  </data>
+  <data name="ApiCertificate" xml:space="preserve">
+    <value>Certificate (PEM):</value>
+  </data>
+  <data name="ApiTitle" xml:space="preserve">
+    <value>Generate certificate</value>
+  </data>
+  <data name="ApiFile" xml:space="preserve">
+    <value>Name of certificate:</value>
+  </data>
+  <data name="MsgEmail" xml:space="preserve">
+    <value>No email address given.</value>
+  </data>
+  <data name="MsgNoName" xml:space="preserve">
+    <value>No name given.</value>
+  </data>
+  <data name="MsgNoCA" xml:space="preserve">
+    <value>No CA found.</value>
+  </data>
 </root>
