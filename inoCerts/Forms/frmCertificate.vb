@@ -6,8 +6,6 @@ Public Class FrmCertificate
     Public strRoot As String = vbNullString
     Public strStoreLocation As String = vbNullString
     Private intSelected As Int16
-    Private clsLang = New ClsLanguage
-
 
     Private Sub CmdFile_Click(sender As Object, e As EventArgs) Handles CmdFile.Click
         Dim ofd As New OpenFileDialog

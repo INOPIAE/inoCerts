@@ -1,9 +1,8 @@
 ﻿Imports System.Security.Cryptography.X509Certificates
 
 Public Class FrmCertStoreCheck
-    Private clsLang = New ClsLanguage
-
     Private toolTips As New List(Of String)
+
     Private Sub CmdOK_Click(sender As Object, e As EventArgs) Handles CmdOK.Click
         Me.Close()
     End Sub

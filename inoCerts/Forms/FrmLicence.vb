@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 
 Public Class FrmLicence
-    Private clsLang = New ClsLanguage
+
     Private Sub CmdOK_Click(sender As Object, e As EventArgs) Handles CmdOK.Click
         Me.Close()
     End Sub

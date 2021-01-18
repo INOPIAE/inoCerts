@@ -1,7 +1,7 @@
 ﻿Imports System.Windows.Forms
 
 Public Class FrmMain
-    Private clsLang = New ClsLanguage
+
 
     Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewToolStripMenuItem.Click, NewToolStripButton.Click, NewWindowToolStripMenuItem.Click
         ' Neue Instanz des untergeordneten Formulars erstellen.

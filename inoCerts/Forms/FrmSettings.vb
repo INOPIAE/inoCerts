@@ -1,5 +1,4 @@
 ﻿Public Class FrmSettings
-    Private clsLang = New ClsLanguage
 
     Private Sub CmdOK_Click(sender As Object, e As EventArgs) Handles CmdOK.Click
         My.Settings.CertFolder = Me.TxtFolder.Text

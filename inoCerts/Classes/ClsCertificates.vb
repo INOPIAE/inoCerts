@@ -3,7 +3,6 @@
 Public Class ClsCertificates
     Public certs() As ClsCertificate
     Public password As String
-    Private clsLang = New ClsLanguage
 
     Public Sub New(strFile As String, strPassword As String, Optional strRoot As String = vbNullString,
                    Optional strStoreLocation As String = vbNullString)

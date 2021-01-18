@@ -1,7 +1,7 @@
 ﻿Imports System.Resources
 
 Public NotInheritable Class FrmAbout
-    Private clsLang As New ClsLanguage
+
     Private Sub FrmAbout_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ' Legen Sie den Titel des Formulars fest.
         Dim ApplicationTitle As String

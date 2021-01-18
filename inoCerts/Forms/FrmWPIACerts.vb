@@ -3,7 +3,6 @@ Imports System.Net
 Imports System.Security.Cryptography.X509Certificates
 
 Public Class FrmWPIACerts
-    Private clsLang = New ClsLanguage
     Private strStoreLocation As String = "LocalMachine"
 
     Private Sub CmdCancel_Click(sender As Object, e As EventArgs) Handles CmdCancel.Click

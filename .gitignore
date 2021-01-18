@@ -260,3 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 /inoCerts/Modules/MdlTestFunctions.vb
+/inoCerts/*.p12

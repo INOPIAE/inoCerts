@@ -2,7 +2,6 @@
 Imports System.Security.Cryptography.X509Certificates
 
 Module MdlCertificate
-    Private clsLang = New ClsLanguage
 
     Public Sub AddCertificate(cert As X509Certificate2, truststore As StoreLocation, certstore As StoreName)
         If My.User.IsInRole(ApplicationServices.BuiltInRole.Administrator) = False And truststore = StoreLocation.LocalMachine Then
