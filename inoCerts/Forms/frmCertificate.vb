@@ -11,7 +11,7 @@ Public Class FrmCertificate
         Dim ofd As New OpenFileDialog
         With ofd
             .Multiselect = False
-            .Filter = String.Format(clsLang.rm.getString("CertImportFileFilter"), "(*.cer, *. p7b, *.p12)|*.p12; *.cer; *.p7b", "*.*", "*.*")
+            .Filter = String.Format(clsLang.rm.getString("CertImportFileFilter"), "(*.cer, *.p7b, *.p12)|*.p12;*.cer;*.p7b", "*.*", "*.*")
             .InitialDirectory = My.Settings.lastPath
             If .ShowDialog = DialogResult.OK Then
                 My.Settings.lastPath = System.IO.Path.GetFullPath(.FileName)

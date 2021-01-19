@@ -333,4 +333,22 @@
   <data name="MainRunAsAdmin" xml:space="preserve">
     <value>run as adminstrator</value>
   </data>
+  <data name="NotFound" xml:space="preserve">
+    <value>Not found</value>
+  </data>
+  <data name="MozillaFirefoxProfiles" xml:space="preserve">
+    <value>Firefox profiles</value>
+  </data>
+  <data name="MozillaThunderbirdProfiles" xml:space="preserve">
+    <value>Thunderbird profiles</value>
+  </data>
+  <data name="MozillaTitle" xml:space="preserve">
+    <value>Import roto certificates into Mozilla Truststores</value>
+  </data>
+  <data name="MozillaPalemoonProfiles" xml:space="preserve">
+    <value>Palemoon profiles</value>
+  </data>
+  <data name="MainImportMozilla" xml:space="preserve">
+    <value>Import certificate to Mozilla Truststore</value>
+  </data>
 </root>

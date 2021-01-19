@@ -323,4 +323,22 @@
   <data name="MainWPIARoot" xml:space="preserve">
     <value>WPIA Root-Zertifikate</value>
   </data>
+  <data name="NotFound" xml:space="preserve">
+    <value>Nicht gefunden</value>
+  </data>
+  <data name="MozillaFirefoxProfiles" xml:space="preserve">
+    <value>Firefox-Profile</value>
+  </data>
+  <data name="MozillaThunderbirdProfiles" xml:space="preserve">
+    <value>Thunderbird-Profile</value>
+  </data>
+  <data name="MozillaTitle" xml:space="preserve">
+    <value>Import von Root Zertifikaten in Mozilla Truststores</value>
+  </data>
+  <data name="MozillaPalemoonProfiles" xml:space="preserve">
+    <value>Palemoon-Profile</value>
+  </data>
+  <data name="MainImportMozilla" xml:space="preserve">
+    <value>Importiere Zertifikate in Mozilla Truststore</value>
+  </data>
 </root>

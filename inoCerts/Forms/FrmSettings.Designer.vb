@@ -27,6 +27,9 @@ Partial Class FrmSettings
         Me.CmdFolder = New System.Windows.Forms.Button()
         Me.CmdCancel = New System.Windows.Forms.Button()
         Me.CmdOK = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TxtCertUtil = New System.Windows.Forms.TextBox()
+        Me.CmdCertUtil = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'LblFolder
@@ -73,6 +76,31 @@ Partial Class FrmSettings
         Me.CmdOK.Text = "OK"
         Me.CmdOK.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(45, 62)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(83, 13)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Zertifikatsordner"
+        '
+        'TxtCertUtil
+        '
+        Me.TxtCertUtil.Location = New System.Drawing.Point(133, 59)
+        Me.TxtCertUtil.Name = "TxtCertUtil"
+        Me.TxtCertUtil.Size = New System.Drawing.Size(278, 20)
+        Me.TxtCertUtil.TabIndex = 1
+        '
+        'CmdCertUtil
+        '
+        Me.CmdCertUtil.Location = New System.Drawing.Point(417, 58)
+        Me.CmdCertUtil.Name = "CmdCertUtil"
+        Me.CmdCertUtil.Size = New System.Drawing.Size(43, 20)
+        Me.CmdCertUtil.TabIndex = 2
+        Me.CmdCertUtil.Text = "..."
+        Me.CmdCertUtil.UseVisualStyleBackColor = True
+        '
         'FrmSettings
         '
         Me.AcceptButton = Me.CmdOK
@@ -83,7 +111,10 @@ Partial Class FrmSettings
         Me.ControlBox = False
         Me.Controls.Add(Me.CmdOK)
         Me.Controls.Add(Me.CmdCancel)
+        Me.Controls.Add(Me.CmdCertUtil)
         Me.Controls.Add(Me.CmdFolder)
+        Me.Controls.Add(Me.TxtCertUtil)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TxtFolder)
         Me.Controls.Add(Me.LblFolder)
         Me.Name = "FrmSettings"
@@ -98,4 +129,7 @@ Partial Class FrmSettings
     Friend WithEvents CmdFolder As Button
     Friend WithEvents CmdCancel As Button
     Friend WithEvents CmdOK As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents TxtCertUtil As TextBox
+    Friend WithEvents CmdCertUtil As Button
 End Class

@@ -89,6 +89,18 @@ Namespace My
                 Me("CertFolder") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property CertUtilFolder() As String
+            Get
+                Return CType(Me("CertUtilFolder"),String)
+            End Get
+            Set
+                Me("CertUtilFolder") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

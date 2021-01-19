@@ -136,7 +136,16 @@ Public Class FrmMain
         Me.ArrangeIconsToolStripMenuItem.Text = clsLang.rm.getString("MainWindowsArrangeIcons")
         Me.HelpMenu.Text = clsLang.rm.getString("MainTools")
         Me.AboutToolStripMenuItem.Text = clsLang.rm.getString("MainAbout")
-
+        Me.MozillaAnwendungenToolStripMenuItem.Text = clsLang.rm.getString("MainImportMozilla")
         Me.ToolStripStatusLabel.Text = clsLang.rm.getString("MainStatus")
+    End Sub
+
+    Private Sub MozillaAnwendungenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MozillaAnwendungenToolStripMenuItem.Click
+        Dim frm As New FrmMozilla
+        With frm
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
     End Sub
 End Class
