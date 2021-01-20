@@ -22,28 +22,34 @@ Partial Class FrmMozilla
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.CmdCancel = New System.Windows.Forms.Button()
+        Me.CmdClose = New System.Windows.Forms.Button()
         Me.ClbFirefox = New System.Windows.Forms.CheckedListBox()
         Me.ClbThunderbird = New System.Windows.Forms.CheckedListBox()
         Me.ChkIntermediate = New System.Windows.Forms.CheckBox()
         Me.ChkRoot = New System.Windows.Forms.CheckBox()
         Me.CbCA = New System.Windows.Forms.ComboBox()
         Me.LblCA = New System.Windows.Forms.Label()
-        Me.CmdOK = New System.Windows.Forms.Button()
         Me.LblFirefox = New System.Windows.Forms.Label()
         Me.LblThunderbird = New System.Windows.Forms.Label()
         Me.ClbPalemoon = New System.Windows.Forms.CheckedListBox()
         Me.LblPalemoon = New System.Windows.Forms.Label()
+        Me.TxtPassword = New System.Windows.Forms.TextBox()
+        Me.LblPassword = New System.Windows.Forms.Label()
+        Me.TxtFile = New System.Windows.Forms.TextBox()
+        Me.LblFile = New System.Windows.Forms.Label()
+        Me.CmdFile = New System.Windows.Forms.Button()
+        Me.CmdImportRoot = New System.Windows.Forms.Button()
+        Me.CmdImportUser = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'CmdCancel
+        'CmdClose
         '
-        Me.CmdCancel.Location = New System.Drawing.Point(429, 402)
-        Me.CmdCancel.Name = "CmdCancel"
-        Me.CmdCancel.Size = New System.Drawing.Size(85, 31)
-        Me.CmdCancel.TabIndex = 11
-        Me.CmdCancel.Text = "Cancel"
-        Me.CmdCancel.UseVisualStyleBackColor = True
+        Me.CmdClose.Location = New System.Drawing.Point(697, 401)
+        Me.CmdClose.Name = "CmdClose"
+        Me.CmdClose.Size = New System.Drawing.Size(85, 31)
+        Me.CmdClose.TabIndex = 17
+        Me.CmdClose.Text = "Close"
+        Me.CmdClose.UseVisualStyleBackColor = True
         '
         'ClbFirefox
         '
@@ -98,15 +104,6 @@ Partial Class FrmMozilla
         Me.LblCA.TabIndex = 6
         Me.LblCA.Text = "CA"
         '
-        'CmdOK
-        '
-        Me.CmdOK.Location = New System.Drawing.Point(609, 401)
-        Me.CmdOK.Name = "CmdOK"
-        Me.CmdOK.Size = New System.Drawing.Size(88, 31)
-        Me.CmdOK.TabIndex = 10
-        Me.CmdOK.Text = "OK"
-        Me.CmdOK.UseVisualStyleBackColor = True
-        '
         'LblFirefox
         '
         Me.LblFirefox.AutoSize = True
@@ -142,15 +139,81 @@ Partial Class FrmMozilla
         Me.LblPalemoon.TabIndex = 4
         Me.LblPalemoon.Text = "Label1"
         '
+        'TxtPassword
+        '
+        Me.TxtPassword.Location = New System.Drawing.Point(429, 294)
+        Me.TxtPassword.Name = "TxtPassword"
+        Me.TxtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.TxtPassword.Size = New System.Drawing.Size(320, 20)
+        Me.TxtPassword.TabIndex = 15
+        '
+        'LblPassword
+        '
+        Me.LblPassword.AutoSize = True
+        Me.LblPassword.Location = New System.Drawing.Point(321, 298)
+        Me.LblPassword.Name = "LblPassword"
+        Me.LblPassword.Size = New System.Drawing.Size(50, 13)
+        Me.LblPassword.TabIndex = 14
+        Me.LblPassword.Text = "Passwort"
+        '
+        'TxtFile
+        '
+        Me.TxtFile.Location = New System.Drawing.Point(429, 255)
+        Me.TxtFile.Name = "TxtFile"
+        Me.TxtFile.Size = New System.Drawing.Size(320, 20)
+        Me.TxtFile.TabIndex = 12
+        '
+        'LblFile
+        '
+        Me.LblFile.AutoSize = True
+        Me.LblFile.Location = New System.Drawing.Point(321, 259)
+        Me.LblFile.Name = "LblFile"
+        Me.LblFile.Size = New System.Drawing.Size(76, 13)
+        Me.LblFile.TabIndex = 11
+        Me.LblFile.Text = "Zertifikatsdatei"
+        '
+        'CmdFile
+        '
+        Me.CmdFile.Location = New System.Drawing.Point(755, 253)
+        Me.CmdFile.Name = "CmdFile"
+        Me.CmdFile.Size = New System.Drawing.Size(27, 23)
+        Me.CmdFile.TabIndex = 13
+        Me.CmdFile.Text = "..."
+        Me.CmdFile.UseVisualStyleBackColor = True
+        '
+        'CmdImportRoot
+        '
+        Me.CmdImportRoot.Location = New System.Drawing.Point(532, 122)
+        Me.CmdImportRoot.Name = "CmdImportRoot"
+        Me.CmdImportRoot.Size = New System.Drawing.Size(88, 31)
+        Me.CmdImportRoot.TabIndex = 10
+        Me.CmdImportRoot.Text = "Importieren"
+        Me.CmdImportRoot.UseVisualStyleBackColor = True
+        '
+        'CmdImportUser
+        '
+        Me.CmdImportUser.Location = New System.Drawing.Point(532, 331)
+        Me.CmdImportUser.Name = "CmdImportUser"
+        Me.CmdImportUser.Size = New System.Drawing.Size(88, 31)
+        Me.CmdImportUser.TabIndex = 16
+        Me.CmdImportUser.Text = "Importieren"
+        Me.CmdImportUser.UseVisualStyleBackColor = True
+        '
         'FrmMozilla
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 460)
+        Me.Controls.Add(Me.CmdImportUser)
+        Me.Controls.Add(Me.CmdImportRoot)
+        Me.Controls.Add(Me.TxtPassword)
+        Me.Controls.Add(Me.LblPassword)
+        Me.Controls.Add(Me.TxtFile)
+        Me.Controls.Add(Me.LblFile)
+        Me.Controls.Add(Me.CmdFile)
         Me.Controls.Add(Me.LblPalemoon)
         Me.Controls.Add(Me.LblThunderbird)
         Me.Controls.Add(Me.LblFirefox)
-        Me.Controls.Add(Me.CmdOK)
         Me.Controls.Add(Me.ChkIntermediate)
         Me.Controls.Add(Me.ChkRoot)
         Me.Controls.Add(Me.CbCA)
@@ -158,7 +221,7 @@ Partial Class FrmMozilla
         Me.Controls.Add(Me.ClbPalemoon)
         Me.Controls.Add(Me.ClbThunderbird)
         Me.Controls.Add(Me.ClbFirefox)
-        Me.Controls.Add(Me.CmdCancel)
+        Me.Controls.Add(Me.CmdClose)
         Me.Name = "FrmMozilla"
         Me.Text = "FrmMozilla"
         Me.ResumeLayout(False)
@@ -166,16 +229,22 @@ Partial Class FrmMozilla
 
     End Sub
 
-    Friend WithEvents CmdCancel As Button
+    Friend WithEvents CmdClose As Button
     Friend WithEvents ClbFirefox As CheckedListBox
     Friend WithEvents ClbThunderbird As CheckedListBox
     Friend WithEvents ChkIntermediate As CheckBox
     Friend WithEvents ChkRoot As CheckBox
     Friend WithEvents CbCA As ComboBox
     Friend WithEvents LblCA As Label
-    Friend WithEvents CmdOK As Button
     Friend WithEvents LblFirefox As Label
     Friend WithEvents LblThunderbird As Label
     Friend WithEvents ClbPalemoon As CheckedListBox
     Friend WithEvents LblPalemoon As Label
+    Friend WithEvents TxtPassword As TextBox
+    Friend WithEvents LblPassword As Label
+    Friend WithEvents TxtFile As TextBox
+    Friend WithEvents LblFile As Label
+    Friend WithEvents CmdFile As Button
+    Friend WithEvents CmdImportRoot As Button
+    Friend WithEvents CmdImportUser As Button
 End Class

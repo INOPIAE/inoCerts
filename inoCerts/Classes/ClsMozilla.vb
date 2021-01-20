@@ -33,9 +33,9 @@ Public Class ClsMozilla
 
     Public Function CertInProfile(Profile As String, Certname As String) As Boolean
         Dim Arguments As String = "-L -n """ & Certname & """"
-        Dim sOutput As String = GetCertutil(Profile, Arguments)
+        Dim sOutput As String = UseCertutil(Profile, Arguments)
 
-        If sOutput.Contains(": File not found1") Then
+        If sOutput.Contains(": File not found") Then
             Return False
         ElseIf sOutput.Contains("certutil.exe:") Then
             Debug.Print(sOutput)
@@ -46,8 +46,16 @@ Public Class ClsMozilla
     End Function
 
     Public Function ImportRootCertificate(Profile As String, Certname As String, CertFile As String) As Boolean
-        Dim Arguments As String = "-A -n """ & Certname & """ -t ""CT,CT,CT"" -i """ & CertFile & """"
-        Dim sOutput As String = GetCertutil(Profile, Arguments)
+        Return ImportCertificate(Profile, Certname, CertFile, "CT,CT,CT")
+    End Function
+
+    Public Function ImportUserCertificate(Profile As String, Certname As String, CertFile As String) As Boolean
+        Return ImportCertificate(Profile, Certname, CertFile, ",,")
+    End Function
+
+    Private Shared Function ImportCertificate(Profile As String, Certname As String, CertFile As String, Trust As String) As Boolean
+        Dim Arguments As String = "-A -n """ & Certname & """ -t """ & Trust & """ -i """ & CertFile & """"
+        Dim sOutput As String = UseCertutil(Profile, Arguments)
         If sOutput.Contains("certutil.exe:") Then
             Debug.Print(sOutput)
             Return False
@@ -56,7 +64,7 @@ Public Class ClsMozilla
         End If
     End Function
 
-    Private Shared Function GetCertutil(Profile As String, Arguments As String) As String
+    Private Shared Function UseCertutil(Profile As String, Arguments As String) As String
         Dim CertUtilPath As String = Application.StartupPath & "\lib\bin\" 'My.Settings.CertUtilFolder & "\"
         Dim startInfo As New ProcessStartInfo
         Dim myProcess As New Process()
@@ -83,6 +91,50 @@ Public Class ClsMozilla
             Return sOutput
         Else
             Return sOutputError
+        End If
+    End Function
+
+    Private Shared Function UsePK12util(Profile As String, Arguments As String) As String
+        Dim CertUtilPath As String = Application.StartupPath & "\lib\bin\" 'My.Settings.CertUtilFolder & "\"
+        Dim startInfo As New ProcessStartInfo
+        Dim myProcess As New Process()
+        startInfo.UseShellExecute = False
+        startInfo.RedirectStandardOutput = True
+        startInfo.RedirectStandardError = True
+        startInfo.CreateNoWindow = True
+        startInfo.FileName = CertUtilPath & "pk12util.exe"
+        startInfo.Arguments = " -d sql:""" & Profile & """ " & Arguments
+        myProcess.StartInfo = startInfo
+        myProcess.Start()
+
+        Dim sOutput As String
+        Using oStreamReader As System.IO.StreamReader = myProcess.StandardOutput
+            sOutput = oStreamReader.ReadToEnd()
+        End Using
+
+        Dim sOutputError As String
+        Using oStreamReader As System.IO.StreamReader = myProcess.StandardError
+            sOutputError = oStreamReader.ReadToEnd()
+        End Using
+
+        If sOutputError.Count = 0 Then
+            Return sOutput
+        Else
+            Return sOutputError
+        End If
+    End Function
+
+    Public Function ImportP12(Profile As String, CertFile As String, Password As String) As Boolean
+        Dim Arguments As String = "-W """ & Password & """ -i """ & CertFile & """"
+        Dim sOutput As String = UsePK12util(Profile, Arguments)
+
+        If sOutput.Contains("pk12util.exe: PKCS12 IMPORT SUCCESSFUL") Then
+            Return True
+        Else
+            Debug.Print(sOutput)
+            Dim strMessage As String() = sOutput.Split(".exe")
+            MessageBox.Show(clsLang.rm.getstring("MsgEorrorOccurs") & vbNewLine & strMessage(1).Substring(4).Trim, clsLang.rm.getstring("MsgError"))
+            Return False
         End If
     End Function
 End Class

@@ -201,7 +201,7 @@
     <value>Zertifikatsspeicher nicht definiert.</value>
   </data>
   <data name="CertImportFileFilter" xml:space="preserve">
-    <value>Zertifikate {0} | Alle Dateien ({1}) | {2}</value>
+    <value>Zertifikate {0}| Alle Dateien ({1}) | {2}</value>
   </data>
   <data name="CertImportRead" xml:space="preserve">
     <value>Zertifikate werden eingelesen.</value>
@@ -340,5 +340,8 @@
   </data>
   <data name="MainImportMozilla" xml:space="preserve">
     <value>Importiere Zertifikate in Mozilla Truststore</value>
+  </data>
+  <data name="MsgErrorOccurs" xml:space="preserve">
+    <value>Der folgende Fehler ist aufgetreten:</value>
   </data>
 </root>
