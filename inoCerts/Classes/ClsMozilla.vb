@@ -65,7 +65,7 @@ Public Class ClsMozilla
     End Function
 
     Private Shared Function UseCertutil(Profile As String, Arguments As String) As String
-        Dim CertUtilPath As String = Application.StartupPath & "\lib\bin\" 'My.Settings.CertUtilFolder & "\"
+        Dim CertUtilPath As String = Application.StartupPath & "\lib\nss\" 'My.Settings.CertUtilFolder & "\"
         Dim startInfo As New ProcessStartInfo
         Dim myProcess As New Process()
         startInfo.UseShellExecute = False
@@ -95,7 +95,7 @@ Public Class ClsMozilla
     End Function
 
     Private Shared Function UsePK12util(Profile As String, Arguments As String) As String
-        Dim CertUtilPath As String = Application.StartupPath & "\lib\bin\" 'My.Settings.CertUtilFolder & "\"
+        Dim CertUtilPath As String = Application.StartupPath & "\lib\nss\" 'My.Settings.CertUtilFolder & "\"
         Dim startInfo As New ProcessStartInfo
         Dim myProcess As New Process()
         startInfo.UseShellExecute = False
