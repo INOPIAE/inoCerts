@@ -225,6 +225,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="inoCerts_TemporaryKey.pfx" />
+    <None Include="lib\openssl\CA.pl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="lib\openssl\openssl.cfg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="lib\openssl\progs.pl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="lib\openssl\tsget.pl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="LICENSE">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -257,51 +269,76 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="lib\bin\certutil.exe">
+    <Content Include="lib\nss\certutil.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\bin\freebl3.dll">
+    <Content Include="lib\nss\freebl3.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\bin\libnspr4.dll">
+    <Content Include="lib\nss\libnspr4.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\bin\libplc4.dll">
+    <Content Include="lib\nss\libplc4.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\bin\libplds4.dll">
+    <Content Include="lib\nss\libplds4.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\bin\nss3.dll">
+    <Content Include="lib\nss\nss3.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\bin\nssckbi.dll">
+    <Content Include="lib\nss\nssckbi.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\bin\nssdbm3.dll">
+    <Content Include="lib\nss\nssdbm3.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\bin\nssutil3.dll">
+    <Content Include="lib\nss\nssutil3.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\bin\pk12util.exe">
+    <Content Include="lib\nss\pk12util.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\bin\smime3.dll">
+    <Content Include="lib\nss\smime3.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\bin\softokn3.dll">
+    <Content Include="lib\nss\softokn3.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\bin\sqlite3.dll">
+    <Content Include="lib\nss\sqlite3.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\bin\ssl3.dll">
+    <Content Include="lib\nss\ssl3.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\bin\user.js">
+    <Content Include="lib\nss\user.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\openssl\capi.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\openssl\dasync.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\openssl\libcrypto-1_1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\openssl\libssl-1_1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\openssl\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\openssl\openssl.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\openssl\ossltest.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\openssl\padlock.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
