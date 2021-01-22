@@ -62,8 +62,8 @@ Public Class FrmMozilla
 
     Private Sub CmdOK_Click(sender As Object, e As EventArgs)
         Dim URL As String = cCA.GetURLByName(CbCA.Text)
-        Dim URLRoot As String = "https://www." & URL & "/roots?cer"
-        Dim URLIntermediate As String = "https://www." & URL & "/roots?bundle"
+        Dim URLRoot As String = "http://www." & URL & "/roots?cer"
+        Dim URLIntermediate As String = "http://www." & URL & "/roots?bundle"
 
         If Directory.Exists(My.Settings.CertFolder) = False Then
             FrmSettings.Show()
