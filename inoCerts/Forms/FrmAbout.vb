@@ -18,7 +18,7 @@ Public NotInheritable Class FrmAbout
         Me.LabelVersion.Text = String.Format(clsLang.rm.GetString("AboutVersion"), My.Application.Info.Version.ToString)
         Me.LabelCopyright.Text = String.Format(clsLang.rm.GetString("ApplicationCopyright"), Year(Now))
         Me.LabelCompanyName.Text = My.Application.Info.CompanyName
-        Me.TextBoxDescription.Text = clsLang.rm.GetString("ApplicationDescription")
+        Me.TextBoxDescription.Text = BuildDescription()
 
         Me.CmdLicense.Text = clsLang.rm.GetString("CmdLicense")
         Me.OKButton.Text = clsLang.rm.GetString("CmdOK")
@@ -31,4 +31,12 @@ Public NotInheritable Class FrmAbout
     Private Sub CmdLicense_Click(sender As Object, e As EventArgs) Handles CmdLicense.Click
         FrmLicence.Show()
     End Sub
+
+    Private Function BuildDescription() As String
+        Dim cOpen As New ClsOpenSSL
+        Dim cMoz As New ClsMozilla
+        Dim description As String = clsLang.rm.GetString("ApplicationDescription")
+        description &= vbNewLine & vbNewLine & clsLang.rm.GetString("AboutCrypto") & vbNewLine & cOpen.OpenSSLVersion
+        Return description
+    End Function
 End Class

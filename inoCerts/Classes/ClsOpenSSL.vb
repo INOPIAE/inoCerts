@@ -86,4 +86,10 @@ Public Class ClsOpenSSL
         End If
 
     End Function
+
+    Public Function OpenSSLVersion() As String
+        Dim Arguments As String = " version"
+        Return UseOpenSSL(Arguments)
+    End Function
+
 End Class

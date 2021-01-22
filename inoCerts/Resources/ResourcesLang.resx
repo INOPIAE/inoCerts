@@ -396,4 +396,7 @@
   <data name="MsgNoCA" xml:space="preserve">
     <value>No CA found.</value>
   </data>
+  <data name="AboutCrypto" xml:space="preserve">
+    <value>To generate the private key the following crypto engine is used:</value>
+  </data>
 </root>
