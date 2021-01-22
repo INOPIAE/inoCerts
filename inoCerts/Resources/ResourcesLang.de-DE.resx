@@ -389,4 +389,19 @@
   <data name="AboutCrypto" xml:space="preserve">
     <value>Zum Erstellen der privaten Schlüssel wird die folgende Kryptoengine genutzt:</value>
   </data>
+  <data name="SettingsLanguage" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="CmdSave" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
+  <data name="CmdSaveClose" xml:space="preserve">
+    <value>Speichern &amp;&amp; Schließen</value>
+  </data>
+  <data name="SettingsRestart" xml:space="preserve">
+    <value>Die Anwendung muss neu gestartet werden, um die Spracheinstellung zu übernehmen. Neu starten?</value>
+  </data>
+  <data name="MsgHint" xml:space="preserve">
+    <value>Hinweis</value>
+  </data>
 </root>

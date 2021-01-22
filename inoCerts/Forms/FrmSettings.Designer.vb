@@ -30,6 +30,9 @@ Partial Class FrmSettings
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TxtCertUtil = New System.Windows.Forms.TextBox()
         Me.CmdCertUtil = New System.Windows.Forms.Button()
+        Me.LblLanguage = New System.Windows.Forms.Label()
+        Me.CboLanguage = New System.Windows.Forms.ComboBox()
+        Me.CmdSave = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'LblFolder
@@ -60,18 +63,18 @@ Partial Class FrmSettings
         'CmdCancel
         '
         Me.CmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.CmdCancel.Location = New System.Drawing.Point(203, 158)
+        Me.CmdCancel.Location = New System.Drawing.Point(48, 158)
         Me.CmdCancel.Name = "CmdCancel"
-        Me.CmdCancel.Size = New System.Drawing.Size(104, 30)
+        Me.CmdCancel.Size = New System.Drawing.Size(129, 30)
         Me.CmdCancel.TabIndex = 3
         Me.CmdCancel.Text = "Abbrechen"
         Me.CmdCancel.UseVisualStyleBackColor = True
         '
         'CmdOK
         '
-        Me.CmdOK.Location = New System.Drawing.Point(356, 158)
+        Me.CmdOK.Location = New System.Drawing.Point(330, 158)
         Me.CmdOK.Name = "CmdOK"
-        Me.CmdOK.Size = New System.Drawing.Size(104, 30)
+        Me.CmdOK.Size = New System.Drawing.Size(129, 30)
         Me.CmdOK.TabIndex = 4
         Me.CmdOK.Text = "OK"
         Me.CmdOK.UseVisualStyleBackColor = True
@@ -101,6 +104,32 @@ Partial Class FrmSettings
         Me.CmdCertUtil.Text = "..."
         Me.CmdCertUtil.UseVisualStyleBackColor = True
         '
+        'LblLanguage
+        '
+        Me.LblLanguage.AutoSize = True
+        Me.LblLanguage.Location = New System.Drawing.Point(45, 88)
+        Me.LblLanguage.Name = "LblLanguage"
+        Me.LblLanguage.Size = New System.Drawing.Size(39, 13)
+        Me.LblLanguage.TabIndex = 5
+        Me.LblLanguage.Text = "Label2"
+        '
+        'CboLanguage
+        '
+        Me.CboLanguage.FormattingEnabled = True
+        Me.CboLanguage.Location = New System.Drawing.Point(133, 85)
+        Me.CboLanguage.Name = "CboLanguage"
+        Me.CboLanguage.Size = New System.Drawing.Size(131, 21)
+        Me.CboLanguage.TabIndex = 6
+        '
+        'CmdSave
+        '
+        Me.CmdSave.Location = New System.Drawing.Point(189, 158)
+        Me.CmdSave.Name = "CmdSave"
+        Me.CmdSave.Size = New System.Drawing.Size(129, 30)
+        Me.CmdSave.TabIndex = 7
+        Me.CmdSave.Text = "Übernehmen"
+        Me.CmdSave.UseVisualStyleBackColor = True
+        '
         'FrmSettings
         '
         Me.AcceptButton = Me.CmdOK
@@ -109,6 +138,9 @@ Partial Class FrmSettings
         Me.CancelButton = Me.CmdCancel
         Me.ClientSize = New System.Drawing.Size(577, 243)
         Me.ControlBox = False
+        Me.Controls.Add(Me.CmdSave)
+        Me.Controls.Add(Me.CboLanguage)
+        Me.Controls.Add(Me.LblLanguage)
         Me.Controls.Add(Me.CmdOK)
         Me.Controls.Add(Me.CmdCancel)
         Me.Controls.Add(Me.CmdCertUtil)
@@ -132,4 +164,7 @@ Partial Class FrmSettings
     Friend WithEvents Label1 As Label
     Friend WithEvents TxtCertUtil As TextBox
     Friend WithEvents CmdCertUtil As Button
+    Friend WithEvents LblLanguage As Label
+    Friend WithEvents CboLanguage As ComboBox
+    Friend WithEvents CmdSave As Button
 End Class

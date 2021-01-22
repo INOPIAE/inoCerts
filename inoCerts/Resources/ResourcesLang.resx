@@ -399,4 +399,19 @@
   <data name="AboutCrypto" xml:space="preserve">
     <value>To generate the private key the following crypto engine is used:</value>
   </data>
+  <data name="SettingsLanguage" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="CmdSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="CmdSaveClose" xml:space="preserve">
+    <value>Save &amp;&amp; Close</value>
+  </data>
+  <data name="SettingsRestart" xml:space="preserve">
+    <value>The application needs as restart to apply the language settings. Do you want to restart?</value>
+  </data>
+  <data name="MsgHint" xml:space="preserve">
+    <value>Hint</value>
+  </data>
 </root>

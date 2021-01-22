@@ -1,10 +1,28 @@
-﻿Public Class FrmSettings
+﻿Imports System.Threading
+
+Public Class FrmSettings
 
     Private Sub CmdOK_Click(sender As Object, e As EventArgs) Handles CmdOK.Click
+        SaveSettings()
+        Me.Close()
+    End Sub
+
+    Private Sub SaveSettings()
+        Dim blnLanguage As Boolean = False
         My.Settings.CertFolder = Me.TxtFolder.Text
         My.Settings.CertUtilFolder = Me.TxtCertUtil.Text
+        If My.Settings.Language <> Me.CboLanguage.SelectedValue Then
+            If MessageBox.Show(clsLang.rm.getString("SettingsRestart"), clsLang.rm.getString("MsgHint"), MessageBoxButtons.YesNo) = DialogResult.Yes Then
+                blnLanguage = True
+            End If
+            My.Settings.Language = Me.CboLanguage.SelectedValue
+            Thread.CurrentThread.CurrentCulture = New Globalization.CultureInfo(My.Settings.Language)
+            Thread.CurrentThread.CurrentUICulture = New Globalization.CultureInfo(My.Settings.Language)
+        End If
         My.Settings.Save()
-        Me.Close()
+        If blnLanguage = True Then
+            Application.Restart()
+        End If
     End Sub
 
     Private Sub CmdCancel_Click(sender As Object, e As EventArgs) Handles CmdCancel.Click
@@ -16,8 +34,26 @@
         Me.TxtCertUtil.Text = My.Settings.CertUtilFolder
         Me.Text = clsLang.rm.getString("SettingsTitle")
         Me.LblFolder.Text = clsLang.rm.getString("SettingsCertFolder")
+        Me.LblLanguage.Text = clsLang.rm.getString("SettingsLanguage")
         Me.CmdCancel.Text = clsLang.rm.getString("CmdCancel")
-        Me.CmdOK.Text = clsLang.rm.getString("CmdOK")
+        Me.CmdOK.Text = clsLang.rm.getString("CmdSaveClose")
+        Me.CmdSave.Text = clsLang.rm.getString("CmdSave")
+
+        Dim comboSource As New Dictionary(Of String, String) From {
+            {"de-DE", "Deutsch"},
+            {"en", "English"}
+        }
+
+        Me.CboLanguage.DataSource = New BindingSource(comboSource, Nothing)
+        Me.CboLanguage.DisplayMember = "Value"
+        Me.CboLanguage.ValueMember = "Key"
+        If My.Settings.Language = vbNullString Then
+            Me.CboLanguage.SelectedValue = Thread.CurrentThread.CurrentCulture.Name
+            My.Settings.Language = Thread.CurrentThread.CurrentCulture.Name
+            My.Settings.Save()
+        Else
+            Me.CboLanguage.SelectedValue = My.Settings.Language
+        End If
     End Sub
 
     Private Sub CmdFolder_Click(sender As Object, e As EventArgs) Handles CmdFolder.Click
@@ -36,5 +72,9 @@
                 Me.TxtCertUtil.Text = .SelectedPath
             End If
         End With
+    End Sub
+
+    Private Sub CmdSave_Click(sender As Object, e As EventArgs) Handles CmdSave.Click
+        SaveSettings()
     End Sub
 End Class

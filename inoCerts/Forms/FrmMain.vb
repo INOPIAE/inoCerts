@@ -1,4 +1,5 @@
-﻿Imports System.Windows.Forms
+﻿Imports System.Threading
+Imports System.Windows.Forms
 
 Public Class FrmMain
 
@@ -113,6 +114,11 @@ Public Class FrmMain
     End Sub
 
     Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
+        If My.Settings.Language <> vbNullString Then
+            Thread.CurrentThread.CurrentCulture = New Globalization.CultureInfo(My.Settings.Language)
+            Thread.CurrentThread.CurrentUICulture = New Globalization.CultureInfo(My.Settings.Language)
+        End If
+
         If My.User.IsInRole(ApplicationServices.BuiltInRole.Administrator) = True Then
             Me.Text = String.Format("{0} ({1})", Me.Text, clsLang.rm.getString("MainRunAsAdmin"))
         End If
