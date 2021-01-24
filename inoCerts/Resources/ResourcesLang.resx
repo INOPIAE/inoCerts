@@ -414,4 +414,13 @@
   <data name="MsgHint" xml:space="preserve">
     <value>Hint</value>
   </data>
+  <data name="MsgNoFilename" xml:space="preserve">
+    <value>No certificate name given.</value>
+  </data>
+  <data name="ApiEmailCheck" xml:space="preserve">
+    <value>Check for new email in your mail account.</value>
+  </data>
+  <data name="CmdReping" xml:space="preserve">
+    <value>Email reping</value>
+  </data>
 </root>

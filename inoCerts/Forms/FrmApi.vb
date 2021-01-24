@@ -11,57 +11,15 @@ Public Class FrmApi
 
     Private cOpen As New ClsOpenSSL
     Private cCA As New ClsCAInfo
+    Private cApi As New ClsAPI
 
     Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles CmdClose.Click
         Me.Close()
     End Sub
 
     Private Sub SendApi(URL As String)
-        Dim myResp As WebResponse
-        Try
-            Dim myReq As HttpWebRequest
-
-            Dim myReader As StreamReader
-            myReq = HttpWebRequest.Create(URL)
-            Dim myCert As New X509Certificate(Me.TxtCertFile.Text, Me.TxtPW.Text)
-            myReq.ClientCertificates.Add(myCert)
-            myReq.Method = "POST"
-            myReq.ContentType = "application/x-www-form-urlencoded"
-            myReq.Accept = "text/plain"
-
-            Dim strCR As String = Me.TxtCSR.Text
-            If strCR.EndsWith(vbNewLine) Then
-                strCR = strCR.Substring(0, strCR.Length - 1)
-            End If
-
-            'add urlencoding manully for csr
-            strCR = strCR.Trim.Replace(vbCr, "")
-            strCR = strCR.Replace(vbLf, "%0A")
-            strCR = strCR.Replace("+", "%2B")
-            Dim postData As String = "csr=" & strCR & "&chain&profile=" & CboProfile.SelectedValue
-
-            Dim postBytes As Byte() = Encoding.UTF8.GetBytes(postData)
-            myReq.ContentLength = postBytes.Length
-
-            Dim postStream As Stream = myReq.GetRequestStream()
-            postStream.Write(postBytes, 0, postBytes.Length)
-            postStream.Flush()
-            postStream.Close()
-
-            Try
-                myResp = myReq.GetResponse
-            Catch ex As WebException
-                myResp = ex.Response
-            End Try
-
-            myReader = New System.IO.StreamReader(myResp.GetResponseStream)
-
-            Me.TxtCert.Text = getResult(myReader.ReadToEnd)
-
-        Catch ex As Exception
-            MessageBox.Show(ex.Message & " " & ex.StackTrace)
-        End Try
-
+        Dim result As String = cApi.SendAPICertRequest(URL, Me.TxtCertFile.Text, Me.TxtPW.Text, Me.TxtCSR.Text, CboProfile.SelectedValue)
+        Me.TxtCert.Text = getResult(result)
     End Sub
 
     Private Sub FrmApi_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -113,6 +71,7 @@ Public Class FrmApi
         Me.CmdP12.Text = clsLang.rm.getString("CmdP12")
         Me.CmdAllSteps.Text = clsLang.rm.getString("CmdCertAll")
         Me.CmdClose.Text = clsLang.rm.getString("CmdClose")
+        Me.CmdReping.Text = clsLang.rm.getString("CmdReping")
 
         Me.Text = clsLang.rm.getString("ApiTitle")
     End Sub
@@ -169,16 +128,7 @@ Public Class FrmApi
     End Sub
 
     Private Sub CmdCertificate_Click(sender As Object, e As EventArgs) Handles CmdCertificate.Click
-        If Me.TxtPW.Text.Trim = vbNullString Then
-            MessageBox.Show(clsLang.rm.getString("MsgPassword"), clsLang.rm.getString("MsgError"))
-            Me.TxtPW.Select()
-            Exit Sub
-        End If
-        If File.Exists(Me.TxtCertFile.Text.Trim) = False Then
-            MessageBox.Show("No Certificate given", clsLang.rm.getString("MsgError"))
-            Me.CmdFile.Select()
-            Exit Sub
-        End If
+        If CheckCertRequirements() = False Then Exit Sub
         If Me.TxtFilename.Text.Trim = vbNullString Then
             MessageBox.Show("No Filename", clsLang.rm.getString("MsgError"))
             Me.TxtFilename.Select()
@@ -322,7 +272,7 @@ Public Class FrmApi
         End If
 
         If Me.TxtFilename.Text.Trim = vbNullString Then
-            MessageBox.Show("No Filename", clsLang.rm.getString("MsgError"))
+            MessageBox.Show(clsLang.rm.getString("MsgNoFilename"), clsLang.rm.getString("MsgError"))
             Me.TxtFilename.Select()
             Exit Sub
         End If
@@ -333,5 +283,50 @@ Public Class FrmApi
         If Me.TxtCert.Text.StartsWith("-----BEGIN CERTIFICATE-----") Then
             CmdP12.PerformClick()
         End If
+    End Sub
+
+    Private Sub CmdReping_Click(sender As Object, e As EventArgs) Handles CmdReping.Click
+        If CheckCertRequirements() = False Then Exit Sub
+        If Me.TxtEmail.Text.Trim = vbNullString Then
+            MessageBox.Show(clsLang.rm.getString("MsgEmail"), clsLang.rm.getString("MsgError"))
+            Me.TxtEmail.Select()
+            Exit Sub
+        End If
+        Dim URL As String = cCA.GetURLByName(CbCA.Text)
+        Dim URLApi As String = "https://api." & URL & "/account/emails/reping"
+        Dim result As String = cApi.SendAPIEmailPing(URLApi, Me.TxtCertFile.Text, Me.TxtPW.Text, Me.TxtEmail.Text)
+        If result = "" Then
+            Me.TxtCert.Text = clsLang.rm.getString("ApiEmailCheck")
+        Else
+            Me.TxtCert.Text = getResult(result)
+        End If
+
+    End Sub
+
+    Private Function CheckCertRequirements() As Boolean
+        If Me.TxtPW.Text.Trim = vbNullString Then
+            MessageBox.Show(clsLang.rm.getString("MsgPassword"), clsLang.rm.getString("MsgError"))
+            Me.TxtPW.Select()
+            Return False
+        End If
+        If File.Exists(Me.TxtCertFile.Text.Trim) = False Then
+            MessageBox.Show("No Certificate given", clsLang.rm.getString("MsgError"))
+            Me.CmdFile.Select()
+            Return False
+        End If
+
+        Return True
+    End Function
+
+    Private Sub TxtCert_TextChanged(sender As Object, e As EventArgs) Handles TxtCert.TextChanged
+        With Me.TxtCert
+            If .Text.Contains(clsLang.rm.getString("MsgError")) Then
+                .BackColor = Color.Coral
+            ElseIf .Text.Contains(clsLang.rm.getString("ApiEmailCheck")) Then
+                .BackColor = Color.LightYellow
+            Else
+                .BackColor = Color.White
+            End If
+        End With
     End Sub
 End Class

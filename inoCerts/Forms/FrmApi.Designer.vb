@@ -46,6 +46,7 @@ Partial Class FrmApi
         Me.CbCA = New System.Windows.Forms.ComboBox()
         Me.LblCA = New System.Windows.Forms.Label()
         Me.CmdAllSteps = New System.Windows.Forms.Button()
+        Me.CmdReping = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'CmdCSR
@@ -81,7 +82,6 @@ Partial Class FrmApi
         Me.TxtCertFile.Name = "TxtCertFile"
         Me.TxtCertFile.Size = New System.Drawing.Size(412, 20)
         Me.TxtCertFile.TabIndex = 3
-        Me.TxtCertFile.Text = "D:\Daten\INOPIAE\zertifikate\gigi\Marcus_M_800000007.p12"
         '
         'LblPW
         '
@@ -254,11 +254,21 @@ Partial Class FrmApi
         Me.CmdAllSteps.Text = "Button1"
         Me.CmdAllSteps.UseVisualStyleBackColor = True
         '
+        'CmdReping
+        '
+        Me.CmdReping.Location = New System.Drawing.Point(658, 204)
+        Me.CmdReping.Name = "CmdReping"
+        Me.CmdReping.Size = New System.Drawing.Size(130, 24)
+        Me.CmdReping.TabIndex = 18
+        Me.CmdReping.Text = "Button1"
+        Me.CmdReping.UseVisualStyleBackColor = True
+        '
         'FrmApi
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.CmdReping)
         Me.Controls.Add(Me.CmdAllSteps)
         Me.Controls.Add(Me.CbCA)
         Me.Controls.Add(Me.LblCA)
@@ -313,4 +323,5 @@ Partial Class FrmApi
     Friend WithEvents CbCA As ComboBox
     Friend WithEvents LblCA As Label
     Friend WithEvents CmdAllSteps As Button
+    Friend WithEvents CmdReping As Button
 End Class

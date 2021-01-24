@@ -105,6 +105,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ClsAPI.vb" />
     <Compile Include="Classes\ClsCAInfo.vb" />
     <Compile Include="Classes\ClsCertificate.vb" />
     <Compile Include="Classes\ClsCertificates.vb" />
