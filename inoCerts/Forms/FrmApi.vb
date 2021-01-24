@@ -159,6 +159,7 @@ Public Class FrmApi
 
     Private Sub FillDataFromCert()
         Try
+            ControllCmdCertButtons(True)
             Dim myCert As New X509Certificate2(Me.TxtCertFile.Text, Me.TxtPW.Text)
             With myCert
                 Debug.Print(.Subject.ToString)
@@ -215,15 +216,25 @@ Public Class FrmApi
                             Dim ca As String = cCA.GetCAByOrg(parts(1).Trim)
                             If ca Is vbNullString Then
                                 MessageBox.Show(clsLang.rm.getString("MsgNoCA"), clsLang.rm.getString("MsgError"))
-                                Me.CmdCertificate.Enabled = False
+                                ControllCmdCertButtons(False)
                             Else
                                 CbCA.Text = ca
-                                Me.CmdCertificate.Enabled = True
+
                             End If
                     End Select
                 Next
                 Me.CboProfile.SelectedValue = certProfile
+
+
+                Dim startDate As DateTime = Convert.ToDateTime(.GetEffectiveDateString())
+                Dim endDate As DateTime = Convert.ToDateTime(.GetExpirationDateString())
+                If startDate > Now And endDate < Now Then
+                    MessageBox.Show(clsLang.rm.getString("MsgInvalidCert"), clsLang.rm.getString("MsgError"))
+                    ControllCmdCertButtons(False)
+                End If
             End With
+
+
         Catch ex As System.Security.Cryptography.CryptographicException
             MessageBox.Show(clsLang.rm.getString("MsgPassword"), clsLang.rm.getString("MsgError"))
         Catch ex As Exception
@@ -328,5 +339,12 @@ Public Class FrmApi
                 .BackColor = Color.White
             End If
         End With
+    End Sub
+
+    Private Sub ControllCmdCertButtons(value As Boolean)
+        Me.CmdAllSteps.Enabled = value
+        Me.CmdCertificate.Enabled = value
+        Me.CmdP12.Enabled = value
+        Me.CmdReping.Enabled = value
     End Sub
 End Class

@@ -413,4 +413,7 @@
   <data name="CmdReping" xml:space="preserve">
     <value>E-Mail reping</value>
   </data>
+  <data name="MsgInvalidCert" xml:space="preserve">
+    <value>Zertifikatstartdatum oder -enddatum ungültig.</value>
+  </data>
 </root>
