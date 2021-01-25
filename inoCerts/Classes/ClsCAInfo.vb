@@ -12,15 +12,15 @@
     Public Sub New()
 
         Dim intCount As Int16 = 0
-        Dim filename As String = Application.StartupPath & "\Settings\ca.ini"
 
+        Dim strLine() As String = My.Settings.CAini.Split(vbLf)
         Dim TextLine() As String
 
-        Dim objReader As New System.IO.StreamReader(filename)
-
-        Do While objReader.Peek() <> -1
-
-            TextLine = objReader.ReadLine().Split(",")
+        For Each line As String In strLine
+            TextLine = line.Split(",")
+            If TextLine.Count() <> 4 Then
+                Continue For
+            End If
             ReDim Preserve CAInfos(intCount)
             Dim cInfos As New CAInfo With {
                 .CAName = TextLine(0).Trim,
@@ -30,11 +30,7 @@
             }
             CAInfos(intCount) = cInfos
             intCount += 1
-        Loop
-
-        objReader.Close()
-
-
+        Next
     End Sub
 
     Public Function GetURLByName(caname As String) As String

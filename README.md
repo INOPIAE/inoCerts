@@ -14,9 +14,10 @@ From these CA's powered by the World Privacy and Identity Association (WPIA) the
 * WPIA Test Server [https://www.test1.backup.dogcraft.de](https://www.test1.backup.dogcraft.de)
 
 ## Installation
+To install inoCerts download and run the setup.exe from [https://github.com/INOPIAE/inoCerts/tree/master/inoCerts/publish](https://github.com/INOPIAE/inoCerts/tree/master/inoCerts/publish).
 
 ## Usage
-If certificates are should be installed into Windows Truststores the application must be run as administrator.
+If certificates shall be installed into Windows Truststores the application must be run as administrator.
 
 To generate new certificates from a WPIA CA the following preconditions are met:
 * Root and intermediate certificates are installed to Windows Truststore

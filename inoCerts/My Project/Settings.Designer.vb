@@ -137,6 +137,19 @@ Namespace My
                 Me("Language") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("InterimCA, interimca-tc.xyz, TC InterimCA, TC-interimCA User"&Global.Microsoft.VisualBasic.ChrW(10)&"Test1, test1.backup."& _ 
+            "dogcraft.de, Test Environment CA Ltd.-17-03-04, SomeCA User")>  _
+        Public Property CAini() As String
+            Get
+                Return CType(Me("CAini"),String)
+            End Get
+            Set
+                Me("CAini") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
