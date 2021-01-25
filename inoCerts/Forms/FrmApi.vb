@@ -12,6 +12,7 @@ Public Class FrmApi
     Private cOpen As New ClsOpenSSL
     Private cCA As New ClsCAInfo
     Private cApi As New ClsAPI
+    Private username As String
 
     Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles CmdClose.Click
         Me.Close()
@@ -162,7 +163,6 @@ Public Class FrmApi
             ControllCmdCertButtons(True)
             Dim myCert As New X509Certificate2(Me.TxtCertFile.Text, Me.TxtPW.Text)
             With myCert
-                Debug.Print(.Subject.ToString)
                 Dim strTest As String() = .Subject.ToString.Split(",")
                 For Each str As String In strTest
                     Dim parts As String() = str.Split("=")
@@ -200,7 +200,6 @@ Public Class FrmApi
                 If certProfile.StartsWith("-") Then
                     certProfile = certProfile.Substring(1)
                 End If
-                Debug.Print(.Issuer.ToString)
                 strTest = .Issuer.ToString.Split(",")
                 For Each str As String In strTest
                     Dim parts As String() = str.Split("=")
@@ -346,5 +345,18 @@ Public Class FrmApi
         Me.CmdCertificate.Enabled = value
         Me.CmdP12.Enabled = value
         Me.CmdReping.Enabled = value
+    End Sub
+
+    Private Sub CboProfile_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CboProfile.SelectedIndexChanged
+        If CboProfile.SelectedValue.ToString.Contains("-a") Or CboProfile.SelectedValue.ToString.Contains("-orga") Then
+            If Me.TxtCN.Text = cCA.GetWotUserByName(Me.CbCA.Text) Then
+                Me.TxtCN.Text = username
+            End If
+        Else
+            If Me.TxtCN.Text <> cCA.GetWotUserByName(Me.CbCA.Text) Then
+                username = Me.TxtCN.Text
+                Me.TxtCN.Text = cCA.GetWotUserByName(Me.CbCA.Text)
+            End If
+        End If
     End Sub
 End Class
