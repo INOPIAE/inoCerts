@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <configSections>
+        <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" >
+            <section name="inoCerts.My.MySettings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+        </sectionGroup>
+    </configSections>
+    <startup>
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.1" />
+    </startup>
+    <userSettings>
+        <inoCerts.My.MySettings>
+            <setting name="lastPath" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="lastPassword" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="CertFolder" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="CertUtilFolder" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="CSR" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="lastCA" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="Language" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="CAini" serializeAs="String">
+                <value>InterimCA, interimca-tc.xyz, TC InterimCA, TC-interimCA User
+Test1, test1.backup.dogcraft.de, Test Environment CA Ltd.-17-03-04, SomeCA User</value>
+            </setting>
+        </inoCerts.My.MySettings>
+    </userSettings>
+</configuration>
