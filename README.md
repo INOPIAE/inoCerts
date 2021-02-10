@@ -20,6 +20,8 @@ To install inoCerts download and run the setup.exe from [https://github.com/INOP
 ## Usage
 If certificates shall be installed into Windows Truststores the application must be run as administrator.
 
+To be able to download and install the WPIA based certificates a folder needs be be given in the settings. If not the application will promt for it.
+
 To generate new certificates from a WPIA CA the following preconditions are met:
 * Root and intermediate certificates are installed to Windows Truststore
 * A valid account on the CA

@@ -45,7 +45,7 @@ Public Class ClsOpenSSL
     End Function
 
     Private Shared Function UseOpenSSL(Arguments As String) As String
-        Dim CertUtilPath As String = Application.StartupPath & "\lib\openssl\" ' My.Settings.CertUtilFolder & "\"
+        Dim CertUtilPath As String = Application.StartupPath & "\lib\openssl\"
         Dim startInfo As New ProcessStartInfo
         Dim myProcess As New Process()
         startInfo.UseShellExecute = False

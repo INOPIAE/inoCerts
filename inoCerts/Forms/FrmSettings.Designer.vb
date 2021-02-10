@@ -66,7 +66,7 @@ Partial Class FrmSettings
         Me.CmdCancel.Location = New System.Drawing.Point(48, 158)
         Me.CmdCancel.Name = "CmdCancel"
         Me.CmdCancel.Size = New System.Drawing.Size(129, 30)
-        Me.CmdCancel.TabIndex = 3
+        Me.CmdCancel.TabIndex = 10
         Me.CmdCancel.Text = "Abbrechen"
         Me.CmdCancel.UseVisualStyleBackColor = True
         '
@@ -75,7 +75,7 @@ Partial Class FrmSettings
         Me.CmdOK.Location = New System.Drawing.Point(330, 158)
         Me.CmdOK.Name = "CmdOK"
         Me.CmdOK.Size = New System.Drawing.Size(129, 30)
-        Me.CmdOK.TabIndex = 4
+        Me.CmdOK.TabIndex = 8
         Me.CmdOK.Text = "OK"
         Me.CmdOK.UseVisualStyleBackColor = True
         '
@@ -85,24 +85,27 @@ Partial Class FrmSettings
         Me.Label1.Location = New System.Drawing.Point(45, 62)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(83, 13)
-        Me.Label1.TabIndex = 0
+        Me.Label1.TabIndex = 3
         Me.Label1.Text = "Zertifikatsordner"
+        Me.Label1.Visible = False
         '
         'TxtCertUtil
         '
         Me.TxtCertUtil.Location = New System.Drawing.Point(133, 59)
         Me.TxtCertUtil.Name = "TxtCertUtil"
         Me.TxtCertUtil.Size = New System.Drawing.Size(278, 20)
-        Me.TxtCertUtil.TabIndex = 1
+        Me.TxtCertUtil.TabIndex = 4
+        Me.TxtCertUtil.Visible = False
         '
         'CmdCertUtil
         '
         Me.CmdCertUtil.Location = New System.Drawing.Point(417, 58)
         Me.CmdCertUtil.Name = "CmdCertUtil"
         Me.CmdCertUtil.Size = New System.Drawing.Size(43, 20)
-        Me.CmdCertUtil.TabIndex = 2
+        Me.CmdCertUtil.TabIndex = 5
         Me.CmdCertUtil.Text = "..."
         Me.CmdCertUtil.UseVisualStyleBackColor = True
+        Me.CmdCertUtil.Visible = False
         '
         'LblLanguage
         '
@@ -110,7 +113,7 @@ Partial Class FrmSettings
         Me.LblLanguage.Location = New System.Drawing.Point(45, 88)
         Me.LblLanguage.Name = "LblLanguage"
         Me.LblLanguage.Size = New System.Drawing.Size(39, 13)
-        Me.LblLanguage.TabIndex = 5
+        Me.LblLanguage.TabIndex = 6
         Me.LblLanguage.Text = "Label2"
         '
         'CboLanguage
@@ -119,14 +122,14 @@ Partial Class FrmSettings
         Me.CboLanguage.Location = New System.Drawing.Point(133, 85)
         Me.CboLanguage.Name = "CboLanguage"
         Me.CboLanguage.Size = New System.Drawing.Size(131, 21)
-        Me.CboLanguage.TabIndex = 6
+        Me.CboLanguage.TabIndex = 7
         '
         'CmdSave
         '
         Me.CmdSave.Location = New System.Drawing.Point(189, 158)
         Me.CmdSave.Name = "CmdSave"
         Me.CmdSave.Size = New System.Drawing.Size(129, 30)
-        Me.CmdSave.TabIndex = 7
+        Me.CmdSave.TabIndex = 9
         Me.CmdSave.Text = "Übernehmen"
         Me.CmdSave.UseVisualStyleBackColor = True
         '
