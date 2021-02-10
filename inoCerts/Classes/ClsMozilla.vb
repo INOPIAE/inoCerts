@@ -1,9 +1,11 @@
 ﻿Imports System.IO
+Imports System.Text
 
 Public Class ClsMozilla
-    Public ThunderbirdPath As String = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) & "\AppData\Roaming\Thunderbird\Profiles"
-    Public FirefoxPath As String = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) & "\AppData\Roaming\Mozilla\Firefox\Profiles"
-    Public PaleMoonPath As String = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) & "\AppData\Roaming\Moonchild Productions\Pale Moon\Profiles"
+    Public ThunderbirdPath As String = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) & "\AppData\Roaming\Thunderbird\"
+    Public FirefoxPath As String = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) & "\AppData\Roaming\Mozilla\Firefox\"
+    Public PaleMoonPath As String = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) & "\AppData\Roaming\Moonchild Productions\Pale Moon\"
+    Public InterlinkPath As String = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) & "\AppData\Roaming\Binary Outcast\Interlink\"
 
     Public Function ListThunderbird() As Dictionary(Of String, String)
         Return GetProfiles(ThunderbirdPath)
@@ -17,6 +19,10 @@ Public Class ClsMozilla
         Return GetProfiles(PaleMoonPath)
     End Function
 
+    Public Function ListInterlink() As Dictionary(Of String, String)
+        Return GetProfiles(InterlinkPath)
+    End Function
+
     Private Shared Function GetProfiles(path As String) As Dictionary(Of String, String)
         Dim result As New Dictionary(Of String, String)
 
@@ -25,10 +31,9 @@ Public Class ClsMozilla
             Return result
         End If
 
-        For Each Dir As String In Directory.GetDirectories(path)
-            result.Add(Dir.Split(".").ElementAt(1), Dir)
-        Next
-        Return result
+        Dim result1 As New Dictionary(Of String, String)
+        Return ReadProfiles(path)
+
     End Function
 
     Public Function CertInProfile(Profile As String, Certname As String) As Boolean
@@ -136,5 +141,47 @@ Public Class ClsMozilla
             MessageBox.Show(clsLang.rm.getstring("MsgEorrorOccurs") & vbNewLine & strMessage(1).Substring(4).Trim, clsLang.rm.getstring("MsgError"))
             Return False
         End If
+    End Function
+
+    Private Shared Function ReadProfiles(Path As String) As Dictionary(Of String, String)
+        Dim reader As New StreamReader(Path & "profiles.ini", Encoding.Default)
+        Dim strLine As String
+        Dim strLines() As String
+        Dim ProfileName As String = vbNullString
+        Dim ProfilePath As String = vbNullString
+        Dim isRelative As Int16 = 0
+        Dim result As New Dictionary(Of String, String)
+
+        strLine = reader.ReadLine
+        Do Until strLine Is Nothing
+            strLines = strLine.Split("=")
+            Select Case strLines(0).Trim
+                Case Is >= "[Profile"
+                    If ProfileName <> vbNullString Then
+                        If isRelative = 1 Then
+                            ProfilePath = Path & ProfilePath
+                        End If
+                        result.Add(ProfileName, ProfilePath)
+                        ProfileName = vbNullString
+                        ProfilePath = vbNullString
+                        isRelative = 0
+                    End If
+                Case "Name"
+                    ProfileName = strLines(1).Trim
+                Case "IsRelative"
+                    isRelative = CInt(strLines(1).Trim)
+                Case "Path"
+                    ProfilePath = strLines(1).Trim.Replace("/", "\")
+            End Select
+            strLine = reader.ReadLine
+        Loop
+
+        If isRelative = 1 Then
+            ProfilePath = Path & "\" & ProfilePath
+        End If
+        result.Add(ProfileName, ProfilePath)
+
+        reader.Close()
+        Return result
     End Function
 End Class
