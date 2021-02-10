@@ -416,4 +416,7 @@
   <data name="MsgInvalidCert" xml:space="preserve">
     <value>Zertifikatstartdatum oder -enddatum ungültig.</value>
   </data>
+  <data name="MozillaInterlinkProfiles" xml:space="preserve">
+    <value>Interlink-Profile</value>
+  </data>
 </root>

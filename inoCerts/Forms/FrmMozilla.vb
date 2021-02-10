@@ -38,6 +38,14 @@ Public Class FrmMozilla
             End If
         Next
 
+
+        For Each item As String In cMozilla.ListInterlink().Keys
+            ClbInterlink.Items.Add(item)
+            If item.Equals(clsLang.rm.getString("NotFound")) Then
+                ClbInterlink.Enabled = False
+            End If
+        Next
+
         With CbCA
             For Each ca As ClsCAInfo.CAInfo In cCA.CAInfos
                 .Items.Add(ca.CAName)
@@ -50,6 +58,7 @@ Public Class FrmMozilla
         Me.LblFirefox.Text = clsLang.rm.getstring("MozillaFirefoxProfiles")
         Me.LblThunderbird.Text = clsLang.rm.getstring("MozillaThunderbirdProfiles")
         Me.LblPalemoon.Text = clsLang.rm.getstring("MozillaPalemoonProfiles")
+        Me.LblInterlink.Text = clsLang.rm.getstring("MozillaInterlinkProfiles")
         Me.LblFile.Text = clsLang.rm.getString("CertImportCertFile")
         Me.LblPassword.Text = clsLang.rm.getString("CertImportPassword")
         Me.ChkRoot.Text = clsLang.rm.getString("CertWPIARoot")
@@ -88,6 +97,10 @@ Public Class FrmMozilla
                 For Each item In ClbPalemoon.CheckedItems
                     cMozilla.ImportRootCertificate(cMozilla.ListPalemoon().Item(item), CertName, RootFile)
                 Next
+
+                For Each item In ClbInterlink.CheckedItems
+                    cMozilla.ImportRootCertificate(cMozilla.ListInterlink().Item(item), CertName, RootFile)
+                Next
             End If
             If ChkIntermediate.Checked Then
                 client.DownloadFile(URLIntermediate, IntermediateFile)
@@ -106,6 +119,10 @@ Public Class FrmMozilla
 
                     For Each item In ClbPalemoon.CheckedItems
                         cMozilla.ImportRootCertificate(cMozilla.ListPalemoon().Item(item), CertName, CertFile)
+                    Next
+
+                    For Each item In ClbInterlink.CheckedItems
+                        cMozilla.ImportRootCertificate(cMozilla.ListInterlink().Item(item), CertName, CertFile)
                     Next
                 Next
             End If
@@ -187,6 +204,8 @@ Public Class FrmMozilla
         If ProcessFunction(ClbFirefox, cMozilla.ListFirefox(), CertName, CertFile, import, password) = False Then Exit Sub
 
         If ProcessFunction(ClbPalemoon, cMozilla.ListPalemoon(), CertName, CertFile, import, password) = False Then Exit Sub
+
+        If ProcessFunction(ClbInterlink, cMozilla.ListInterlink(), CertName, CertFile, import, password) = False Then Exit Sub
     End Sub
 
     Private Function ProcessFunction(cbl As CheckedListBox, dict As Dictionary(Of String, String), CertName As String, CertFile As String, import As ImportType, Optional password As String = vbNullString) As Boolean

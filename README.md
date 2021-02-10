@@ -1,13 +1,14 @@
-﻿# inoCerts
+# inoCerts
 
-inoCerts is a tool that enables an user to install easily certificates into the truststore of Windows and applications using a Mozilla truststores. Special features are to get certificates from WPIA [https://wpia.club](https://wpia.club) powered CA's and to install them to the truststores.
+inoCerts is a tool that enables an user to install easily certificates into the truststore of Windows and applications using a Mozilla truststore. Special features are to get certificates from WPIA [https://wpia.club](https://wpia.club) powered CA's and to install them to the truststores.
 
 Certificates can currently be installed into these truststores:
 * Windows Current User truststore
 * Windows Clocal Computer truststore
-* Firefox truststore
-* PaleMoon truststore
-* Thunderbird truststore
+* Firefox truststore (browser)
+* PaleMoon truststore (browser) [https://www.palemoon.org/](https://www.palemoon.org/)
+* Thunderbird truststore (mail client)
+* Interlink truststore (mail client) [https://binaryoutcast.com/projects/interlink/](https://binaryoutcast.com/projects/interlink/)
 
 From these CA's powered by the World Privacy and Identity Association (WPIA) the root and intermediate certificates can be downloaded and installed and if a valid client certificate is present new certificates can be obtained:
 * WPIA Interim CA [https://www.interimca-tc.xyz](https://www.interimca-tc.xyz)
