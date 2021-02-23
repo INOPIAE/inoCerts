@@ -150,6 +150,18 @@ Namespace My
                 Me("CAini") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property Software() As String
+            Get
+                Return CType(Me("Software"),String)
+            End Get
+            Set
+                Me("Software") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

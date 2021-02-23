@@ -47,12 +47,14 @@ Partial Class FrmMain
         Me.PasteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.SelectAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ViewMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StatusBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ZertifikateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportWindowsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WPIARootzertifikateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ZertifikatAnfordernToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MozillaAnwendungenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ViewMenu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StatusBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WindowsMenu = New System.Windows.Forms.ToolStripMenuItem()
@@ -81,8 +83,7 @@ Partial Class FrmMain
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TslbCert = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.MozillaAnwendungenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ZertifikatAnfordernToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InstalledSoftwareToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -263,6 +264,37 @@ Partial Class FrmMain
         Me.SelectAllToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
         Me.SelectAllToolStripMenuItem.Text = "&Alle auswählen"
         '
+        'ZertifikateToolStripMenuItem
+        '
+        Me.ZertifikateToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportWindowsToolStripMenuItem, Me.WPIARootzertifikateToolStripMenuItem, Me.ZertifikatAnfordernToolStripMenuItem, Me.MozillaAnwendungenToolStripMenuItem})
+        Me.ZertifikateToolStripMenuItem.Name = "ZertifikateToolStripMenuItem"
+        Me.ZertifikateToolStripMenuItem.Size = New System.Drawing.Size(72, 20)
+        Me.ZertifikateToolStripMenuItem.Text = "Zertifikate"
+        '
+        'ImportWindowsToolStripMenuItem
+        '
+        Me.ImportWindowsToolStripMenuItem.Name = "ImportWindowsToolStripMenuItem"
+        Me.ImportWindowsToolStripMenuItem.Size = New System.Drawing.Size(229, 22)
+        Me.ImportWindowsToolStripMenuItem.Text = "Import in Windows Truststore"
+        '
+        'WPIARootzertifikateToolStripMenuItem
+        '
+        Me.WPIARootzertifikateToolStripMenuItem.Name = "WPIARootzertifikateToolStripMenuItem"
+        Me.WPIARootzertifikateToolStripMenuItem.Size = New System.Drawing.Size(229, 22)
+        Me.WPIARootzertifikateToolStripMenuItem.Text = "WPIA-Rootzertifikate"
+        '
+        'ZertifikatAnfordernToolStripMenuItem
+        '
+        Me.ZertifikatAnfordernToolStripMenuItem.Name = "ZertifikatAnfordernToolStripMenuItem"
+        Me.ZertifikatAnfordernToolStripMenuItem.Size = New System.Drawing.Size(229, 22)
+        Me.ZertifikatAnfordernToolStripMenuItem.Text = "Zertifikat anfordern"
+        '
+        'MozillaAnwendungenToolStripMenuItem
+        '
+        Me.MozillaAnwendungenToolStripMenuItem.Name = "MozillaAnwendungenToolStripMenuItem"
+        Me.MozillaAnwendungenToolStripMenuItem.Size = New System.Drawing.Size(229, 22)
+        Me.MozillaAnwendungenToolStripMenuItem.Text = "Mozilla-Anwendungen"
+        '
         'ViewMenu
         '
         Me.ViewMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolBarToolStripMenuItem, Me.StatusBarToolStripMenuItem})
@@ -289,28 +321,9 @@ Partial Class FrmMain
         Me.StatusBarToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
         Me.StatusBarToolStripMenuItem.Text = "Status&leiste"
         '
-        'ZertifikateToolStripMenuItem
-        '
-        Me.ZertifikateToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportWindowsToolStripMenuItem, Me.WPIARootzertifikateToolStripMenuItem, Me.ZertifikatAnfordernToolStripMenuItem, Me.MozillaAnwendungenToolStripMenuItem})
-        Me.ZertifikateToolStripMenuItem.Name = "ZertifikateToolStripMenuItem"
-        Me.ZertifikateToolStripMenuItem.Size = New System.Drawing.Size(72, 20)
-        Me.ZertifikateToolStripMenuItem.Text = "Zertifikate"
-        '
-        'ImportWindowsToolStripMenuItem
-        '
-        Me.ImportWindowsToolStripMenuItem.Name = "ImportWindowsToolStripMenuItem"
-        Me.ImportWindowsToolStripMenuItem.Size = New System.Drawing.Size(229, 22)
-        Me.ImportWindowsToolStripMenuItem.Text = "Import in Windows Truststore"
-        '
-        'WPIARootzertifikateToolStripMenuItem
-        '
-        Me.WPIARootzertifikateToolStripMenuItem.Name = "WPIARootzertifikateToolStripMenuItem"
-        Me.WPIARootzertifikateToolStripMenuItem.Size = New System.Drawing.Size(229, 22)
-        Me.WPIARootzertifikateToolStripMenuItem.Text = "WPIA-Rootzertifikate"
-        '
         'ToolsMenu
         '
-        Me.ToolsMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem})
+        Me.ToolsMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem, Me.InstalledSoftwareToolStripMenuItem})
         Me.ToolsMenu.Name = "ToolsMenu"
         Me.ToolsMenu.Size = New System.Drawing.Size(46, 20)
         Me.ToolsMenu.Text = "&Tools"
@@ -318,7 +331,7 @@ Partial Class FrmMain
         'OptionsToolStripMenuItem
         '
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.OptionsToolStripMenuItem.Text = "&Optionen"
         '
         'WindowsMenu
@@ -504,18 +517,11 @@ Partial Class FrmMain
         Me.TslbCert.Size = New System.Drawing.Size(119, 17)
         Me.TslbCert.Text = "ToolStripStatusLabel1"
         '
-        'MozillaAnwendungenToolStripMenuItem
-
+        'InstalledSoftwareToolStripMenuItem
         '
-        Me.MozillaAnwendungenToolStripMenuItem.Name = "MozillaAnwendungenToolStripMenuItem"
-        Me.MozillaAnwendungenToolStripMenuItem.Size = New System.Drawing.Size(229, 22)
-        Me.MozillaAnwendungenToolStripMenuItem.Text = "Mozilla-Anwendungen"
-        '
-        'ZertifikatAnfordernToolStripMenuItem
-        '
-        Me.ZertifikatAnfordernToolStripMenuItem.Name = "ZertifikatAnfordernToolStripMenuItem"
-        Me.ZertifikatAnfordernToolStripMenuItem.Size = New System.Drawing.Size(229, 22)
-        Me.ZertifikatAnfordernToolStripMenuItem.Text = "Zertifikat anfordern"
+        Me.InstalledSoftwareToolStripMenuItem.Name = "InstalledSoftwareToolStripMenuItem"
+        Me.InstalledSoftwareToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.InstalledSoftwareToolStripMenuItem.Text = "Installed Software"
         '
         'FrmMain
         '
@@ -597,4 +603,5 @@ Partial Class FrmMain
     Friend WithEvents TslbCert As ToolStripStatusLabel
     Friend WithEvents MozillaAnwendungenToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ZertifikatAnfordernToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents InstalledSoftwareToolStripMenuItem As ToolStripMenuItem
 End Class

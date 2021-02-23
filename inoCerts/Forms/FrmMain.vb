@@ -140,10 +140,12 @@ Public Class FrmMain
         Me.TileHorizontalToolStripMenuItem.Text = clsLang.rm.getString("MainWindowsHorizontal")
         Me.CloseAllToolStripMenuItem.Text = clsLang.rm.getString("MainWindowsCloseAll")
         Me.ArrangeIconsToolStripMenuItem.Text = clsLang.rm.getString("MainWindowsArrangeIcons")
-        Me.HelpMenu.Text = clsLang.rm.getString("MainTools")
+        Me.HelpMenu.Text = clsLang.rm.getString("MainHelp")
         Me.AboutToolStripMenuItem.Text = clsLang.rm.getString("MainAbout")
         Me.MozillaAnwendungenToolStripMenuItem.Text = clsLang.rm.getString("MainImportMozilla")
         Me.ToolStripStatusLabel.Text = clsLang.rm.getString("MainStatus")
+        Me.InstalledSoftwareToolStripMenuItem.Text = clsLang.rm.getString("MainSoftware")
+
     End Sub
 
     Private Sub MozillaAnwendungenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MozillaAnwendungenToolStripMenuItem.Click
@@ -157,6 +159,15 @@ Public Class FrmMain
 
     Private Sub ZertifikatAnfordernToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ZertifikatAnfordernToolStripMenuItem.Click
         Dim frm As New FrmApi
+        With frm
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+    End Sub
+
+    Private Sub InstalledSoftwareToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InstalledSoftwareToolStripMenuItem.Click
+        Dim frm As New FrmSoftware
         With frm
             .MdiParent = Me
             .Show()

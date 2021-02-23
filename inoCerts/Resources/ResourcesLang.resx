@@ -429,4 +429,22 @@
   <data name="MozillaInterlinkProfiles" xml:space="preserve">
     <value>Interlink profiles</value>
   </data>
+  <data name="MainHelp" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="SoftwareState" xml:space="preserve">
+    <value>Process</value>
+  </data>
+  <data name="SoftwareSoftware" xml:space="preserve">
+    <value>Software</value>
+  </data>
+  <data name="SoftwareTitle" xml:space="preserve">
+    <value>Software definition</value>
+  </data>
+  <data name="SoftwareTruststore" xml:space="preserve">
+    <value>Served by Windows truststore</value>
+  </data>
+  <data name="MainSoftware" xml:space="preserve">
+    <value>Installed software</value>
+  </data>
 </root>

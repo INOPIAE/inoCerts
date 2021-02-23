@@ -27,5 +27,8 @@
       <Value Profile="(Default)">InterimCA, interimca-tc.xyz, TC InterimCA, TC-interimCA User
 Test1, test1.backup.dogcraft.de, Test Environment CA Ltd.-17-03-04, SomeCA User</Value>
     </Setting>
+    <Setting Name="Software" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

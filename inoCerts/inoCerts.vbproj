@@ -114,6 +114,7 @@
     <Compile Include="Classes\ClsLanguage.vb" />
     <Compile Include="Classes\ClsMozilla.vb" />
     <Compile Include="Classes\ClsOpenSSL.vb" />
+    <Compile Include="Classes\ClsSoftware.vb" />
     <Compile Include="Forms\FrmAbout.Designer.vb">
       <DependentUpon>FrmAbout.vb</DependentUpon>
     </Compile>
@@ -161,6 +162,12 @@
       <DependentUpon>FrmSettings.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmSoftware.Designer.vb">
+      <DependentUpon>FrmSoftware.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmSoftware.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FrmWPIACerts.Designer.vb">
@@ -213,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmSettings.resx">
       <DependentUpon>FrmSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmSoftware.resx">
+      <DependentUpon>FrmSoftware.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmWPIACerts.resx">
       <DependentUpon>FrmWPIACerts.vb</DependentUpon>
