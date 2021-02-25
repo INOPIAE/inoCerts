@@ -10,6 +10,8 @@ Certificates can currently be installed into these truststores:
 * Thunderbird truststore (mail client)
 * Interlink truststore (mail client) [https://binaryoutcast.com/projects/interlink/](https://binaryoutcast.com/projects/interlink/)
 
+Furthermore the certificate use with PDF-Over [https://technology.a-sit.at/pdf-over-2/](https://technology.a-sit.at/pdf-over-2/) can be configured.
+
 From these CA's powered by the World Privacy and Identity Association (WPIA) the root and intermediate certificates can be downloaded and installed and if a valid client certificate is present new certificates can be obtained:
 * WPIA Interim CA [https://www.interimca-tc.xyz](https://www.interimca-tc.xyz)
 * WPIA Test Server [https://www.test1.backup.dogcraft.de](https://www.test1.backup.dogcraft.de)
