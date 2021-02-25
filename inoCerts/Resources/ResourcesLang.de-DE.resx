@@ -437,4 +437,25 @@
   <data name="MainSoftware" xml:space="preserve">
     <value>Installierte Software</value>
   </data>
+  <data name="PDFOverTitle" xml:space="preserve">
+    <value>PDF-Over Einstellungen</value>
+  </data>
+  <data name="PDFOverAlias" xml:space="preserve">
+    <value>Zertifikatsalias:</value>
+  </data>
+  <data name="PDFOverPasswordCheck" xml:space="preserve">
+    <value>Passwort speichern (in Klartext, nicht empfohlen)</value>
+  </data>
+  <data name="MsgSecurityAlert" xml:space="preserve">
+    <value>Sicherheitshinweis</value>
+  </data>
+  <data name="MsgPDFOverPassword" xml:space="preserve">
+    <value>Sind Sie sicher, das das Passwort gespeichert werden soll.</value>
+  </data>
+  <data name="MsgNoAlias" xml:space="preserve">
+    <value>Es wurde kein Zertifikatsalias gesetzt. Zuerst das Zertifikat laden.</value>
+  </data>
+  <data name="CmdLoadCert" xml:space="preserve">
+    <value>Lade Zertifikat</value>
+  </data>
 </root>

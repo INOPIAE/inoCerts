@@ -30,5 +30,8 @@ Test1, test1.backup.dogcraft.de, Test Environment CA Ltd.-17-03-04, SomeCA User<
     <Setting Name="Software" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="PDFOverPassword" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -447,4 +447,25 @@
   <data name="MainSoftware" xml:space="preserve">
     <value>Installed software</value>
   </data>
+  <data name="PDFOverTitle" xml:space="preserve">
+    <value>PDF-Over Settings</value>
+  </data>
+  <data name="PDFOverAlias" xml:space="preserve">
+    <value>Certificate alias:</value>
+  </data>
+  <data name="PDFOverPasswordCheck" xml:space="preserve">
+    <value>Save Password (in clear text, not recommended)</value>
+  </data>
+  <data name="MsgSecurityAlert" xml:space="preserve">
+    <value>Security alert</value>
+  </data>
+  <data name="MsgPDFOverPassword" xml:space="preserve">
+    <value>You are sure to save the password.</value>
+  </data>
+  <data name="MsgNoAlias" xml:space="preserve">
+    <value>No alias selected. Load certificate first.</value>
+  </data>
+  <data name="CmdLoadCert" xml:space="preserve">
+    <value>Load certificate</value>
+  </data>
 </root>

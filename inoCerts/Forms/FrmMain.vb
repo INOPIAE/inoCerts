@@ -145,6 +145,7 @@ Public Class FrmMain
         Me.MozillaAnwendungenToolStripMenuItem.Text = clsLang.rm.getString("MainImportMozilla")
         Me.ToolStripStatusLabel.Text = clsLang.rm.getString("MainStatus")
         Me.InstalledSoftwareToolStripMenuItem.Text = clsLang.rm.getString("MainSoftware")
+        Me.PDFOverStripMenuItem.Text = clsLang.rm.getString("PDFOverTitle")
 
     End Sub
 
@@ -168,6 +169,15 @@ Public Class FrmMain
 
     Private Sub InstalledSoftwareToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InstalledSoftwareToolStripMenuItem.Click
         Dim frm As New FrmSoftware
+        With frm
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+    End Sub
+
+    Private Sub PDFOverStripMenuItem_Click(sender As Object, e As EventArgs) Handles PDFOverStripMenuItem.Click
+        Dim frm As New FrmPDFOver
         With frm
             .MdiParent = Me
             .Show()
