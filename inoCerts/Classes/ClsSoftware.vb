@@ -3,9 +3,11 @@ Imports Microsoft.Win32
 
 Public Class ClsSoftware
     Public processedSoftware() As String
+    Public installedSoftware As SortedDictionary(Of String, Boolean())
 
     Public Sub New()
         ReadSoftware()
+        installedSoftware = ListSoftware()
     End Sub
 
     Public Function ListSoftware() As SortedDictionary(Of String, Boolean())
@@ -30,6 +32,11 @@ Public Class ClsSoftware
 
     Public Function IsSoftwareProcessed(Software As String) As Boolean
         Return Array.IndexOf(processedSoftware, Software) >= 0
+    End Function
+
+    Public Function IsSoftwareInstalled(Software As String) As Boolean
+        Dim value() As Boolean = installedSoftware.Item(Software)
+        Return value(0)
     End Function
 
     Private Function SoftwareInstalled(Software As String) As Boolean

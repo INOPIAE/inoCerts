@@ -1,15 +1,15 @@
 ﻿Imports System.ComponentModel
 
 Public Class FrmSoftware
-    Private cSoftware As New ClsSoftware
+
     Private Sub CmdOK_Click(sender As Object, e As EventArgs) Handles CmdOK.Click
         Me.Close()
     End Sub
 
     Private Sub FrmSoftware_Load(sender As Object, e As EventArgs) Handles Me.Load
         Dim intCount As Int16 = 0
-        For Each item As KeyValuePair(Of String, Boolean()) In cSoftware.ListSoftware()
-            DgvSoftware.Rows.Add(cSoftware.IsSoftwareProcessed(item.Key), item.Key, item.Value(0), item.Value(1))
+        For Each item As KeyValuePair(Of String, Boolean()) In FrmMain.cSoftware.ListSoftware()
+            DgvSoftware.Rows.Add(FrmMain.cSoftware.IsSoftwareProcessed(item.Key), item.Key, item.Value(0), item.Value(1))
             DgvSoftware.Rows(intCount).ReadOnly = (Not item.Value(0) Or item.Value(1))
             intCount += 1
         Next

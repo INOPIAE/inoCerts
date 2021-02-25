@@ -2,7 +2,7 @@
 Imports System.Windows.Forms
 
 Public Class FrmMain
-
+    Public cSoftware As New ClsSoftware
 
     Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewToolStripMenuItem.Click, NewToolStripButton.Click, NewWindowToolStripMenuItem.Click
         ' Neue Instanz des untergeordneten Formulars erstellen.
@@ -145,6 +145,8 @@ Public Class FrmMain
         Me.MozillaAnwendungenToolStripMenuItem.Text = clsLang.rm.getString("MainImportMozilla")
         Me.ToolStripStatusLabel.Text = clsLang.rm.getString("MainStatus")
         Me.InstalledSoftwareToolStripMenuItem.Text = clsLang.rm.getString("MainSoftware")
+
+        Me.PDFOverStripMenuItem.Visible = cSoftware.IsSoftwareInstalled("PDF-Over")
         Me.PDFOverStripMenuItem.Text = clsLang.rm.getString("PDFOverTitle")
 
     End Sub
