@@ -3,6 +3,7 @@ Imports System.Windows.Forms
 
 Public Class FrmMain
     Public cSoftware As New ClsSoftware
+    Private Declare Auto Function SendMessage Lib "user32" (ByVal hwnd As IntPtr, ByVal wMsg As Integer, ByVal wParam As IntPtr, ByVal lParam As IntPtr) As IntPtr
 
     Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewToolStripMenuItem.Click, NewToolStripButton.Click, NewWindowToolStripMenuItem.Click
         ' Neue Instanz des untergeordneten Formulars erstellen.
@@ -186,4 +187,16 @@ Public Class FrmMain
             .WindowState = FormWindowState.Maximized
         End With
     End Sub
+
+
+
+
+
+    Protected Overrides Function ProcessCmdKey(ByRef msg As System.Windows.Forms.Message, ByVal keyData As System.Windows.Forms.Keys) As Boolean
+
+        SendMessage(Me.ActiveMdiChild.Handle, msg.Msg, msg.WParam, msg.LParam)
+
+        'Return MyBase.ProcessCmdKey(msg, keyData)
+
+    End Function
 End Class
