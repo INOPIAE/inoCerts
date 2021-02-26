@@ -1,19 +1,24 @@
 ﻿Imports System.IO
+Imports System.Text
 
 Public Class ClsOpenSSL
 
-    Public Sub CreateCSRConfig(cn As String, email As String, Optional keysize As Int16 = 4096)
+    Public Sub CreateCSRConfig(cn As String, email As String, Optional keysize As Int16 = 4096, Optional OU As String = vbNullString)
         Dim path As String = My.Settings.CertFolder & "\mycsr.cnf"
 
-        Dim content As String = "[ req ]" & vbNewLine
+        Dim content As String = "[req]" & vbNewLine
         content &= "default_bits = " & keysize & vbNewLine
         content &= "default_md = sha256" & vbNewLine
         content &= "prompt = no" & vbNewLine
         content &= "encrypt_key = no" & vbNewLine
         content &= "distinguished_name = dn" & vbNewLine
-        content &= "[ dn ]" & vbNewLine
+        content &= "utf8 = yes" & vbNewLine
+        content &= "[dn]" & vbNewLine
         content &= "emailAddress = " & email & vbNewLine
         content &= "CN = " & cn
+        If OU <> vbNullString Then
+            content &= vbNewLine & "OU = " & OU
+        End If
 
         File.WriteAllText(path, content)
     End Sub

@@ -19,7 +19,11 @@ Public Class FrmApi
     End Sub
 
     Private Sub SendApi(URL As String)
-        Dim result As String = cApi.SendAPICertRequest(URL, Me.TxtCertFile.Text, Me.TxtPW.Text, Me.TxtCSR.Text, CboProfile.SelectedValue)
+        Dim lngOrgNo As Long = 0
+        If IsNumeric(TxtOrgNo.Text) And Me.CboProfile.Text.Contains("orga") Then
+            lngOrgNo = TxtOrgNo.Text
+        End If
+        Dim result As String = cApi.SendAPICertRequest(URL, Me.TxtCertFile.Text, Me.TxtPW.Text, Me.TxtCSR.Text, CboProfile.SelectedValue, lngOrgNo)
         Me.TxtCert.Text = getResult(result)
     End Sub
 
@@ -67,6 +71,9 @@ Public Class FrmApi
         Me.TxtFilename.Text = MdlHelper.lastFilename
         Me.LblCSR.Text = clsLang.rm.getString("ApiCSR")
         Me.LblCert.Text = clsLang.rm.getString("ApiCertificate")
+        Me.GrpOrg.Text = clsLang.rm.getString("ApiOrgRelated")
+        Me.LblOrgNo.Text = clsLang.rm.getString("ApiOrgNo")
+        Me.LblOU.Text = clsLang.rm.getString("ApiOU")
         Me.CmdCSR.Text = clsLang.rm.getString("CmdCSR")
         Me.CmdCertificate.Text = clsLang.rm.getString("CmdCertificate")
         Me.CmdP12.Text = clsLang.rm.getString("CmdP12")
@@ -75,6 +82,8 @@ Public Class FrmApi
         Me.CmdReping.Text = clsLang.rm.getString("CmdReping")
 
         Me.Text = clsLang.rm.getString("ApiTitle")
+
+        Me.TTForm.SetToolTip(Me.TxtOrgNo, clsLang.rm.getString("ApiOrgNoTT"))
     End Sub
 
     Private Function getResult(input As String) As String
@@ -123,7 +132,7 @@ Public Class FrmApi
             Me.TxtFilename.Select()
             Exit Sub
         End If
-        cOpen.CreateCSRConfig(Me.TxtCN.Text.Trim, Me.TxtEmail.Text.Trim)
+        cOpen.CreateCSRConfig(Me.TxtCN.Text.Trim, Me.TxtEmail.Text.Trim,, TxtOU.Text.Trim)
         cOpen.CreateCSR(Me.TxtFilename.Text.Trim, Me.TxtPW.Text)
         Me.TxtCSR.Text = File.ReadAllText(My.Settings.CertFolder & "\" & Me.TxtFilename.Text.Trim & ".csr")
     End Sub

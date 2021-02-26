@@ -146,7 +146,7 @@ Public Class FrmMain
         Me.MozillaAnwendungenToolStripMenuItem.Text = clsLang.rm.getString("MainImportMozilla")
         Me.ToolStripStatusLabel.Text = clsLang.rm.getString("MainStatus")
         Me.InstalledSoftwareToolStripMenuItem.Text = clsLang.rm.getString("MainSoftware")
-
+        Me.ZertifikatAnfordernToolStripMenuItem.Text = clsLang.rm.getString("MainApi")
         Me.PDFOverStripMenuItem.Visible = cSoftware.IsSoftwareInstalled("PDF-Over")
         Me.PDFOverStripMenuItem.Text = clsLang.rm.getString("PDFOverTitle")
 

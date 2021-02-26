@@ -468,4 +468,19 @@
   <data name="CmdLoadCert" xml:space="preserve">
     <value>Load certificate</value>
   </data>
+  <data name="ApiOrgRelated" xml:space="preserve">
+    <value>Only relevant for organisation accounts</value>
+  </data>
+  <data name="ApiOrgNo" xml:space="preserve">
+    <value>Organisation ID</value>
+  </data>
+  <data name="ApiOrgNoTT" xml:space="preserve">
+    <value>ID found in organisation account</value>
+  </data>
+  <data name="ApiOU" xml:space="preserve">
+    <value>Organisation Unit (OU)</value>
+  </data>
+  <data name="MainApi" xml:space="preserve">
+    <value>Generate WPIA certificate </value>
+  </data>
 </root>

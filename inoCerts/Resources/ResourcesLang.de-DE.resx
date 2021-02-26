@@ -458,4 +458,19 @@
   <data name="CmdLoadCert" xml:space="preserve">
     <value>Lade Zertifikat</value>
   </data>
+  <data name="ApiOrgRelated" xml:space="preserve">
+    <value>Nur für Organisationsaccounts relevant</value>
+  </data>
+  <data name="ApiOrgNo" xml:space="preserve">
+    <value>Organisation ID</value>
+  </data>
+  <data name="ApiOrgNoTT" xml:space="preserve">
+    <value>ID befindet sich im Organisationsaccount</value>
+  </data>
+  <data name="ApiOU" xml:space="preserve">
+    <value>Abteilung (OU)</value>
+  </data>
+  <data name="MainApi" xml:space="preserve">
+    <value>WPIA Zertifikat erstellen</value>
+  </data>
 </root>

@@ -22,6 +22,7 @@ Partial Class FrmApi
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.CmdCSR = New System.Windows.Forms.Button()
         Me.CmdClose = New System.Windows.Forms.Button()
         Me.LblCertFile = New System.Windows.Forms.Label()
@@ -47,6 +48,13 @@ Partial Class FrmApi
         Me.LblCA = New System.Windows.Forms.Label()
         Me.CmdAllSteps = New System.Windows.Forms.Button()
         Me.CmdReping = New System.Windows.Forms.Button()
+        Me.TxtOrgNo = New System.Windows.Forms.TextBox()
+        Me.TxtOU = New System.Windows.Forms.TextBox()
+        Me.TTForm = New System.Windows.Forms.ToolTip(Me.components)
+        Me.GrpOrg = New System.Windows.Forms.GroupBox()
+        Me.LblOU = New System.Windows.Forms.Label()
+        Me.LblOrgNo = New System.Windows.Forms.Label()
+        Me.GrpOrg.SuspendLayout()
         Me.SuspendLayout()
         '
         'CmdCSR
@@ -54,7 +62,7 @@ Partial Class FrmApi
         Me.CmdCSR.Location = New System.Drawing.Point(658, 27)
         Me.CmdCSR.Name = "CmdCSR"
         Me.CmdCSR.Size = New System.Drawing.Size(130, 24)
-        Me.CmdCSR.TabIndex = 15
+        Me.CmdCSR.TabIndex = 16
         Me.CmdCSR.Text = "CSR"
         Me.CmdCSR.UseVisualStyleBackColor = True
         '
@@ -63,8 +71,8 @@ Partial Class FrmApi
         Me.CmdClose.Location = New System.Drawing.Point(658, 405)
         Me.CmdClose.Name = "CmdClose"
         Me.CmdClose.Size = New System.Drawing.Size(130, 24)
-        Me.CmdClose.TabIndex = 23
-        Me.CmdClose.Text = "Button1"
+        Me.CmdClose.TabIndex = 25
+        Me.CmdClose.Text = "Close"
         Me.CmdClose.UseVisualStyleBackColor = True
         '
         'LblCertFile
@@ -72,15 +80,15 @@ Partial Class FrmApi
         Me.LblCertFile.AutoSize = True
         Me.LblCertFile.Location = New System.Drawing.Point(24, 41)
         Me.LblCertFile.Name = "LblCertFile"
-        Me.LblCertFile.Size = New System.Drawing.Size(39, 13)
+        Me.LblCertFile.Size = New System.Drawing.Size(42, 13)
         Me.LblCertFile.TabIndex = 2
-        Me.LblCertFile.Text = "Label1"
+        Me.LblCertFile.Text = "Cert file"
         '
         'TxtCertFile
         '
         Me.TxtCertFile.Location = New System.Drawing.Point(155, 38)
         Me.TxtCertFile.Name = "TxtCertFile"
-        Me.TxtCertFile.Size = New System.Drawing.Size(412, 20)
+        Me.TxtCertFile.Size = New System.Drawing.Size(439, 20)
         Me.TxtCertFile.TabIndex = 3
         '
         'LblPW
@@ -105,9 +113,9 @@ Partial Class FrmApi
         Me.LblCSR.AutoSize = True
         Me.LblCSR.Location = New System.Drawing.Point(24, 190)
         Me.LblCSR.Name = "LblCSR"
-        Me.LblCSR.Size = New System.Drawing.Size(39, 13)
-        Me.LblCSR.TabIndex = 19
-        Me.LblCSR.Text = "Label1"
+        Me.LblCSR.Size = New System.Drawing.Size(29, 13)
+        Me.LblCSR.TabIndex = 20
+        Me.LblCSR.Text = "CSR"
         '
         'TxtCSR
         '
@@ -115,17 +123,17 @@ Partial Class FrmApi
         Me.TxtCSR.Multiline = True
         Me.TxtCSR.Name = "TxtCSR"
         Me.TxtCSR.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.TxtCSR.Size = New System.Drawing.Size(412, 112)
-        Me.TxtCSR.TabIndex = 20
+        Me.TxtCSR.Size = New System.Drawing.Size(439, 112)
+        Me.TxtCSR.TabIndex = 21
         '
         'LblCert
         '
         Me.LblCert.AutoSize = True
         Me.LblCert.Location = New System.Drawing.Point(24, 320)
         Me.LblCert.Name = "LblCert"
-        Me.LblCert.Size = New System.Drawing.Size(39, 13)
-        Me.LblCert.TabIndex = 21
-        Me.LblCert.Text = "Label1"
+        Me.LblCert.Size = New System.Drawing.Size(37, 13)
+        Me.LblCert.TabIndex = 22
+        Me.LblCert.Text = "Result"
         '
         'TxtCert
         '
@@ -133,17 +141,17 @@ Partial Class FrmApi
         Me.TxtCert.Multiline = True
         Me.TxtCert.Name = "TxtCert"
         Me.TxtCert.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.TxtCert.Size = New System.Drawing.Size(412, 112)
-        Me.TxtCert.TabIndex = 22
+        Me.TxtCert.Size = New System.Drawing.Size(439, 112)
+        Me.TxtCert.TabIndex = 23
         '
         'LblProfile
         '
         Me.LblProfile.AutoSize = True
         Me.LblProfile.Location = New System.Drawing.Point(24, 68)
         Me.LblProfile.Name = "LblProfile"
-        Me.LblProfile.Size = New System.Drawing.Size(39, 13)
+        Me.LblProfile.Size = New System.Drawing.Size(36, 13)
         Me.LblProfile.TabIndex = 5
-        Me.LblProfile.Text = "Label6"
+        Me.LblProfile.Text = "Profile"
         '
         'CboProfile
         '
@@ -158,7 +166,7 @@ Partial Class FrmApi
         Me.CmdCertificate.Location = New System.Drawing.Point(658, 62)
         Me.CmdCertificate.Name = "CmdCertificate"
         Me.CmdCertificate.Size = New System.Drawing.Size(130, 24)
-        Me.CmdCertificate.TabIndex = 16
+        Me.CmdCertificate.TabIndex = 17
         Me.CmdCertificate.Text = "Certificate"
         Me.CmdCertificate.UseVisualStyleBackColor = True
         '
@@ -167,7 +175,7 @@ Partial Class FrmApi
         Me.CmdP12.Location = New System.Drawing.Point(658, 99)
         Me.CmdP12.Name = "CmdP12"
         Me.CmdP12.Size = New System.Drawing.Size(130, 24)
-        Me.CmdP12.TabIndex = 17
+        Me.CmdP12.TabIndex = 18
         Me.CmdP12.Text = "P12"
         Me.CmdP12.UseVisualStyleBackColor = True
         '
@@ -176,9 +184,9 @@ Partial Class FrmApi
         Me.LblFilename.AutoSize = True
         Me.LblFilename.Location = New System.Drawing.Point(24, 147)
         Me.LblFilename.Name = "LblFilename"
-        Me.LblFilename.Size = New System.Drawing.Size(61, 13)
+        Me.LblFilename.Size = New System.Drawing.Size(49, 13)
         Me.LblFilename.TabIndex = 13
-        Me.LblFilename.Text = "Neue Datei"
+        Me.LblFilename.Text = "Filename"
         '
         'TxtFilename
         '
@@ -221,7 +229,7 @@ Partial Class FrmApi
         '
         'CmdFile
         '
-        Me.CmdFile.Location = New System.Drawing.Point(573, 36)
+        Me.CmdFile.Location = New System.Drawing.Point(602, 36)
         Me.CmdFile.Name = "CmdFile"
         Me.CmdFile.Size = New System.Drawing.Size(27, 23)
         Me.CmdFile.TabIndex = 4
@@ -231,15 +239,15 @@ Partial Class FrmApi
         'CbCA
         '
         Me.CbCA.FormattingEnabled = True
-        Me.CbCA.Location = New System.Drawing.Point(410, 65)
+        Me.CbCA.Location = New System.Drawing.Point(448, 64)
         Me.CbCA.Name = "CbCA"
-        Me.CbCA.Size = New System.Drawing.Size(157, 21)
+        Me.CbCA.Size = New System.Drawing.Size(146, 21)
         Me.CbCA.TabIndex = 8
         '
         'LblCA
         '
         Me.LblCA.AutoSize = True
-        Me.LblCA.Location = New System.Drawing.Point(312, 68)
+        Me.LblCA.Location = New System.Drawing.Point(321, 68)
         Me.LblCA.Name = "LblCA"
         Me.LblCA.Size = New System.Drawing.Size(21, 13)
         Me.LblCA.TabIndex = 7
@@ -250,8 +258,8 @@ Partial Class FrmApi
         Me.CmdAllSteps.Location = New System.Drawing.Point(658, 147)
         Me.CmdAllSteps.Name = "CmdAllSteps"
         Me.CmdAllSteps.Size = New System.Drawing.Size(130, 24)
-        Me.CmdAllSteps.TabIndex = 18
-        Me.CmdAllSteps.Text = "Button1"
+        Me.CmdAllSteps.TabIndex = 19
+        Me.CmdAllSteps.Text = "All Steps"
         Me.CmdAllSteps.UseVisualStyleBackColor = True
         '
         'CmdReping
@@ -259,15 +267,61 @@ Partial Class FrmApi
         Me.CmdReping.Location = New System.Drawing.Point(658, 204)
         Me.CmdReping.Name = "CmdReping"
         Me.CmdReping.Size = New System.Drawing.Size(130, 24)
-        Me.CmdReping.TabIndex = 18
-        Me.CmdReping.Text = "Button1"
+        Me.CmdReping.TabIndex = 24
+        Me.CmdReping.Text = "Reping"
         Me.CmdReping.UseVisualStyleBackColor = True
+        '
+        'TxtOrgNo
+        '
+        Me.TxtOrgNo.Location = New System.Drawing.Point(133, 19)
+        Me.TxtOrgNo.Name = "TxtOrgNo"
+        Me.TxtOrgNo.Size = New System.Drawing.Size(146, 20)
+        Me.TxtOrgNo.TabIndex = 1
+        '
+        'TxtOU
+        '
+        Me.TxtOU.Location = New System.Drawing.Point(133, 45)
+        Me.TxtOU.Name = "TxtOU"
+        Me.TxtOU.Size = New System.Drawing.Size(146, 20)
+        Me.TxtOU.TabIndex = 3
+        '
+        'GrpOrg
+        '
+        Me.GrpOrg.Controls.Add(Me.LblOU)
+        Me.GrpOrg.Controls.Add(Me.LblOrgNo)
+        Me.GrpOrg.Controls.Add(Me.TxtOU)
+        Me.GrpOrg.Controls.Add(Me.TxtOrgNo)
+        Me.GrpOrg.Location = New System.Drawing.Point(315, 92)
+        Me.GrpOrg.Name = "GrpOrg"
+        Me.GrpOrg.Size = New System.Drawing.Size(285, 85)
+        Me.GrpOrg.TabIndex = 15
+        Me.GrpOrg.TabStop = False
+        Me.GrpOrg.Text = "Org related"
+        '
+        'LblOU
+        '
+        Me.LblOU.AutoSize = True
+        Me.LblOU.Location = New System.Drawing.Point(6, 52)
+        Me.LblOU.Name = "LblOU"
+        Me.LblOU.Size = New System.Drawing.Size(23, 13)
+        Me.LblOU.TabIndex = 2
+        Me.LblOU.Text = "OU"
+        '
+        'LblOrgNo
+        '
+        Me.LblOrgNo.AutoSize = True
+        Me.LblOrgNo.Location = New System.Drawing.Point(6, 26)
+        Me.LblOrgNo.Name = "LblOrgNo"
+        Me.LblOrgNo.Size = New System.Drawing.Size(38, 13)
+        Me.LblOrgNo.TabIndex = 0
+        Me.LblOrgNo.Text = "OrgNo"
         '
         'FrmApi
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.GrpOrg)
         Me.Controls.Add(Me.CmdReping)
         Me.Controls.Add(Me.CmdAllSteps)
         Me.Controls.Add(Me.CbCA)
@@ -295,6 +349,8 @@ Partial Class FrmApi
         Me.Controls.Add(Me.LblCertFile)
         Me.Name = "FrmApi"
         Me.Text = "FrmApi"
+        Me.GrpOrg.ResumeLayout(False)
+        Me.GrpOrg.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -324,4 +380,10 @@ Partial Class FrmApi
     Friend WithEvents LblCA As Label
     Friend WithEvents CmdAllSteps As Button
     Friend WithEvents CmdReping As Button
+    Friend WithEvents TxtOrgNo As TextBox
+    Friend WithEvents TxtOU As TextBox
+    Friend WithEvents TTForm As ToolTip
+    Friend WithEvents GrpOrg As GroupBox
+    Friend WithEvents LblOU As Label
+    Friend WithEvents LblOrgNo As Label
 End Class

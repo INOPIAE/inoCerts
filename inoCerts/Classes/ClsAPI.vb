@@ -17,7 +17,7 @@ Public Class ClsAPI
             myReq.ContentType = "application/x-www-form-urlencoded"
             myReq.Accept = "text/plain"
 
-            Dim postBytes As Byte() = Encoding.UTF8.GetBytes(postData)
+            Dim postBytes As Byte() = Encoding.UTF8.GetBytes(Postdata)
             myReq.ContentLength = postBytes.Length
 
             Dim postStream As Stream = myReq.GetRequestStream()
@@ -42,7 +42,7 @@ Public Class ClsAPI
 
     End Function
 
-    Public Function SendAPICertRequest(URL As String, CertFile As String, Password As String, CSR As String, Profile As String) As String
+    Public Function SendAPICertRequest(URL As String, CertFile As String, Password As String, CSR As String, Profile As String, Optional OrgNo As Long = 0) As String
 
         Dim strCR As String = CSR
         If strCR.EndsWith(vbNewLine) Then
@@ -54,6 +54,9 @@ Public Class ClsAPI
         strCR = strCR.Replace(vbLf, "%0A")
         strCR = strCR.Replace("+", "%2B")
         Dim postData As String = "csr=" & strCR & "&chain&profile=" & Profile
+        If OrgNo > 0 Then
+            postData &= "&asOrg=" & OrgNo
+        End If
 
         Return SendApi(URL, CertFile, Password, postData)
     End Function
